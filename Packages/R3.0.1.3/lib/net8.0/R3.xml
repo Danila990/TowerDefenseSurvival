@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>R3</name>
+    </assembly>
+    <members>
+        <member name="M:R3.ObservableExtensions.ObserveOnCurrentSynchronizationContext``1(R3.Observable{``0})">
+            <summary>ObserveOn SynchronizationContext.Current</summary>
+        </member>
+    </members>
+</doc>

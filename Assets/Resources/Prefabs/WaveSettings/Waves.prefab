@@ -1,0 +1,539 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &383877108404855584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6900256598734928961}
+  m_Layer: 0
+  m_Name: Waves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6900256598734928961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383877108404855584}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 348.0875, y: 80.14111, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2974535031497362244}
+  - {fileID: 7924112213629556570}
+  - {fileID: 5193361623778084557}
+  - {fileID: 5894301883405241824}
+  - {fileID: 8099340333911458262}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4762978385585836158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5894301883405241824}
+  - component: {fileID: 7972852614520019071}
+  - component: {fileID: 5249796005042468688}
+  m_Layer: 0
+  m_Name: WaveFactory 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5894301883405241824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4762978385585836158}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -348.0875, y: -79.64111, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6900256598734928961}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7972852614520019071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4762978385585836158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d1d2f88bb057940a431ba65586a08d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxEnemies: 10
+  _enemyData: {fileID: 11400000, guid: 69f8856d2d3ddc14dbc4710c01545d63, type: 2}
+  _enemyPrefab: {fileID: 7925146250936634522, guid: 1b9fdabf88ecd784bbdd4e2dad28b50a, type: 3}
+--- !u!114 &5249796005042468688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4762978385585836158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d0248d1bf333d47a60344dc81b7430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToStart: 0
+  _enemyPooler: {fileID: 7972852614520019071}
+  _player: {fileID: 0}
+  _timeBetweenSpawn: 100
+  _spawnNumberAtOneTime: 1
+  _spawnRadius: 18
+  _isFinal: 0
+  _onFactoryStart:
+    m_PersistentCalls:
+      m_Calls: []
+  _onEnemySpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5991481219495589611}
+        m_TargetAssemblyTypeName: Assets.Scripts.Wave.WaveFactory, Assembly-CSharp
+        m_MethodName: CounterUpgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 100
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7972852614520019071}
+        m_TargetAssemblyTypeName: Assets.Scripts.Wave.EnemyPooler, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 100
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onFactoryEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  _onEnemyDie:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &4951814663719699403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7924112213629556570}
+  - component: {fileID: 1337319669048450982}
+  - component: {fileID: 9026127549857506394}
+  m_Layer: 0
+  m_Name: WaveFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7924112213629556570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951814663719699403}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -348.0875, y: -79.64111, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6900256598734928961}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1337319669048450982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951814663719699403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d1d2f88bb057940a431ba65586a08d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxEnemies: 500
+  _enemyData: {fileID: 11400000, guid: c826b67793d63104381e352b8f2c6c28, type: 2}
+  _enemyPrefab: {fileID: 7925146250936634522, guid: 755898ccb150e4c86b27d7fb430b80db, type: 3}
+--- !u!114 &9026127549857506394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951814663719699403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d0248d1bf333d47a60344dc81b7430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToStart: 0
+  _enemyPooler: {fileID: 1337319669048450982}
+  _player: {fileID: 0}
+  _timeBetweenSpawn: 4
+  _spawnNumberAtOneTime: 3
+  _spawnRadius: 18
+  _isFinal: 0
+  _onFactoryStart:
+    m_PersistentCalls:
+      m_Calls: []
+  _onEnemySpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1337319669048450982}
+        m_TargetAssemblyTypeName: Assets.Scripts.Wave.EnemyPooler, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 4
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onFactoryEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  _onEnemyDie:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &5193744434563149312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5193361623778084557}
+  - component: {fileID: 4624322237680299768}
+  - component: {fileID: 5991481219495589611}
+  m_Layer: 0
+  m_Name: WaveFactory 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5193361623778084557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5193744434563149312}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -348.0875, y: -79.64111, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6900256598734928961}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4624322237680299768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5193744434563149312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d1d2f88bb057940a431ba65586a08d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxEnemies: 50
+  _enemyData: {fileID: 11400000, guid: 694931276666e5e429682c80b02e9c62, type: 2}
+  _enemyPrefab: {fileID: 7925146250936634522, guid: 12c842caf18e4804f97bcdcf98a8c741, type: 3}
+--- !u!114 &5991481219495589611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5193744434563149312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d0248d1bf333d47a60344dc81b7430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToStart: 0
+  _enemyPooler: {fileID: 4624322237680299768}
+  _player: {fileID: 0}
+  _timeBetweenSpawn: 30
+  _spawnNumberAtOneTime: 1
+  _spawnRadius: 18
+  _isFinal: 0
+  _onFactoryStart:
+    m_PersistentCalls:
+      m_Calls: []
+  _onEnemySpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4624322237680299768}
+        m_TargetAssemblyTypeName: Assets.Scripts.Wave.EnemyPooler, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 50
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9026127549857506394}
+        m_TargetAssemblyTypeName: Assets.Scripts.Wave.WaveFactory, Assembly-CSharp
+        m_MethodName: CounterUpgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onFactoryEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  _onEnemyDie:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &6456623070728247625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2974535031497362244}
+  - component: {fileID: 8723345994922918287}
+  m_Layer: 0
+  m_Name: EnemyLayerer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2974535031497362244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456623070728247625}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -348.0875, y: -80.14111, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6900256598734928961}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8723345994922918287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456623070728247625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b08a4ce66814f54091a533ffe91389e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _poolers:
+  - {fileID: 1337319669048450982}
+  - {fileID: 4624322237680299768}
+  - {fileID: 7972852614520019071}
+  - {fileID: 3203190660482136814}
+  _layer1Distance: 5
+  _layer2Distance: 10
+  _layer3Distance: 50
+--- !u!1 &7050977623962341479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8099340333911458262}
+  - component: {fileID: 3203190660482136814}
+  - component: {fileID: 8996459870132232490}
+  m_Layer: 0
+  m_Name: BossFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8099340333911458262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050977623962341479}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -348.0875, y: -79.64111, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6900256598734928961}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3203190660482136814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050977623962341479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d1d2f88bb057940a431ba65586a08d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxEnemies: 1
+  _enemyData: {fileID: 11400000, guid: 14df447144eb04cb787c32d2adc53d49, type: 2}
+  _enemyPrefab: {fileID: 7925146250936634522, guid: fb4f2a32ed129864788c53ea3a04c2a5, type: 3}
+--- !u!114 &8996459870132232490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050977623962341479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d0248d1bf333d47a60344dc81b7430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToStart: 3
+  _enemyPooler: {fileID: 3203190660482136814}
+  _player: {fileID: 0}
+  _timeBetweenSpawn: 300
+  _spawnNumberAtOneTime: 1
+  _spawnRadius: 18
+  _isFinal: 1
+  _onFactoryStart:
+    m_PersistentCalls:
+      m_Calls: []
+  _onEnemySpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BossWarning, Assembly-CSharp
+        m_MethodName: ActivateObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 7050977623962341479}
+        m_TargetAssemblyTypeName: Assets.Scripts.Wave.WaveFactory, Assembly-CSharp
+        m_MethodName: StopFactory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9026127549857506394}
+        m_TargetAssemblyTypeName: Assets.Scripts.Wave.WaveFactory, Assembly-CSharp
+        m_MethodName: StopFactory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5991481219495589611}
+        m_TargetAssemblyTypeName: Assets.Scripts.Wave.WaveFactory, Assembly-CSharp
+        m_MethodName: StopFactory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onFactoryEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  _onEnemyDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 8996459870132232490}
+        m_TargetAssemblyTypeName: Assets.Scripts.Wave.WaveFactory, Assembly-CSharp
+        m_MethodName: StopFactory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2

@@ -1,0 +1,6 @@
+id;name;maxHealth;movementSpeed;attackSpeed;range;damage;armor;assetPath;collisionRadius
+0;tower;2500;0;0;0;0;0;Prefabs/Tower;1
+1;ghost;10;0.6;1.2;2;10;1;Prefabs/Enemy/UndeadLvl1;0.3
+2;elemental;140;0.6;1;3;50;3;Prefabs/Enemy/UndeadLvl2;0.3
+3;scorpion;285;0.7;0.8;3;100;5;Prefabs/Enemy/UndeadLvl3;0.3
+4;dragon;3500;0.6;1;4;280;12;Prefabs/Enemy/Boss;0.3

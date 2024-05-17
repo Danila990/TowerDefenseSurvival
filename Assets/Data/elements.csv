@@ -1,0 +1,10 @@
+Name;IconPath;Color;AttachOnBuy;Type
+Default;Icons/Tower;0.566,0.566,0.566,1.000;;Tower
+Blood;Icons/Blood;0.588,0.000,0.000,1.000;Prefabs/Launchers/Blood_Attach;Blood
+Fire;Icons/FireArrow;0.792,0.445,0.176,1.000;Prefabs/Launchers/Fire_Attach;Fire
+Frost;Icons/FrostArrow;0.135,0.598,0.698,1.000;Prefabs/Launchers/Frost_Attach;Frost
+Dark;Icons/DarkElement;0.503,0.210,0.708,1.000;Prefabs/Launchers/Dark_Attach;Dark
+Poison;Icons/PoisonArrow;0.212,0.706,0.331,1.000;Prefabs/Launchers/Poison_Attach;Poison
+Earth;Icons/Earth;0.732,0.736,0.469,1.000;Prefabs/Launchers/Earth_Attach;Earth
+Silver;Icons/SilverArrow;0.566,0.566,0.566,1.000;Prefabs/Launchers/Silver_Attach;Silver
+Spikes;Icons/Spikes;0.840,0.495,0.637,1.000;;Spikes
