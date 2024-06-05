@@ -11,7 +11,7 @@ namespace TD
         [Inject]
         private void Construct(TowerStats towerStats)
         {
-            stats = towerStats;
+            this.stats = towerStats;
         }
 
         public void TakeDamage(float damage)

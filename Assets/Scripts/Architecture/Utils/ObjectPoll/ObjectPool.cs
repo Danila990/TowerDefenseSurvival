@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace TD
 {
-    public class ObjectPull<T> where T : MonoBehaviour
+    public class ObjectPool<T> where T : MonoBehaviour
     {
         protected readonly List<T> objectsPull = new List<T>();
         protected readonly Transform spawnParent;
 
         public readonly T ObjectPrefab;
 
-        public ObjectPull(T prefab)
+        public ObjectPool(T prefab)
         {
             ObjectPrefab = prefab;
-            spawnParent = new GameObject("EnemyPull: " + prefab.name).transform;
+            spawnParent = new GameObject("ZenjectPool: " + prefab.name).transform;
         }
 
         public T Get()

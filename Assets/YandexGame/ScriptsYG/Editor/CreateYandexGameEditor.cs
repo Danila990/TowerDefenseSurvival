@@ -5,7 +5,7 @@ namespace YG.Insides
 {
     public class CreateYandexGameEditor
     {
-        [MenuItem("Tools/PluginYG/Create YandexGame Object", false, 101)]
+        [MenuItem("Tools/PluginYG/CreatePoll YandexGame Object", false, 101)]
         public static void InsertPrefab()
         {
             string fileLocation = "Assets/YandexGame/Prefabs/YandexGame.prefab";
@@ -17,7 +17,7 @@ namespace YG.Insides
             {
                 PrefabUtility.InstantiatePrefab(prefab);
                 prefab.transform.position = new Vector3(0f, 0f, 0f);
-                Undo.RegisterCreatedObjectUndo(SceneAsset.FindAnyObjectByType<YandexGame>().gameObject, "Create YandexGame");
+                Undo.RegisterCreatedObjectUndo(SceneAsset.FindAnyObjectByType<YandexGame>().gameObject, "CreatePoll YandexGame");
             }
         }
     }

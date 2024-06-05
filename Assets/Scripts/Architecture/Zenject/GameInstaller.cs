@@ -12,16 +12,21 @@ namespace TD
 
         public override void InstallBindings()
         {
-            BindGameManager();
+            BindGame();
             BindTower();
             BindWave();
         }
 
-        private void BindGameManager()
+        private void BindGame()
         {
             Container
                 .Bind<GameManager>()
                 .FromNew()
+                .AsSingle();
+
+            Container
+                .Bind<IObjectPollFactory>()
+                .To<ObjectPollFactory>()
                 .AsSingle();
         }
 
