@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
 
-namespace TD.Architecture
+namespace TD
 {
     public class ProjectInstaller : MonoInstaller
     {

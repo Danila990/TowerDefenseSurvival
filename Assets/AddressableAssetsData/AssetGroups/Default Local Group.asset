@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 51c5858b4cff22c46b6efc84e0d5bef4
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 82d2aac8d01f74c808e5548a47455644
+    m_Address: TowerPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8ccf74be61bc49d4384a6081e0907e57, type: 2}
   m_SchemaSet:

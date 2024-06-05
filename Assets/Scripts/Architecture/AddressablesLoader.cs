@@ -4,37 +4,27 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace TD.Architecture
+namespace TD
 {
-    public static class AssetLoader
+    public static class AddressablesLoader
     {
         public static async Task<T> Load<T>(AssetReference keyAsset)
         {
-            return await Load<T>(keyAsset.RuntimeKey.ToString());
-        }
-
-        public static async Task<T> Load<T>(string keyAsset)
-        {
-            var handle = Addressables.LoadAssetAsync<T>(keyAsset);
-            T resultLoad = await handle.Task;
+            var handle =  keyAsset.LoadAssetAsync<T>();
+            await handle.Task;
             if (handle.Status.Equals(AsyncOperationStatus.Failed))
             {
                 throw new NullReferenceException($"Addressables Load Error: {typeof(T)}/{keyAsset} is null");
             }
 
-            return resultLoad;
+            return handle.Task.Result;
         }
 
         public static async Task<T> LoadInstantiate<T>(AssetReferenceGameObject keyAsset)
         {
-            return await LoadInstantiate<T>(keyAsset.RuntimeKey.ToString());
-        }
-
-        public static async Task<T> LoadInstantiate<T>(string keyAsset)
-        {
-            var handle = Addressables.InstantiateAsync(keyAsset);
-            GameObject spawnObject = await handle.Task;
-            if(spawnObject.TryGetComponent(out T loadAsset) == false)
+            var handle = keyAsset.InstantiateAsync();
+            await handle.Task;
+            if (handle.Result.TryGetComponent(out T loadAsset) == false)
             {
                 throw new NullReferenceException($"Addressables Load Instantiate Error: {typeof(T)}/{keyAsset} is null");
             }

@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Code
+namespace TD
 {
     public class ObjectPull<T> where T : MonoBehaviour
     {
-        protected readonly List<T> _pullList = new List<T>();
-        protected readonly Transform _parent;
+        protected readonly List<T> objectsPull = new List<T>();
+        protected readonly Transform spawnParent;
 
-        public readonly T Prefab;
+        public readonly T ObjectPrefab;
 
         public ObjectPull(T prefab)
         {
-            Prefab = prefab;
-            _parent = new GameObject("EnemyPull: " + prefab.name).transform;
+            ObjectPrefab = prefab;
+            spawnParent = new GameObject("EnemyPull: " + prefab.name).transform;
         }
 
-        public virtual T Get()
+        public T Get()
         {
-            foreach (T objectPull in _pullList)
+            foreach (T objectPull in objectsPull)
             {
                 if (objectPull.gameObject.activeInHierarchy == false)
                 {
@@ -32,17 +32,10 @@ namespace Code
 
         public virtual T Create()
         {
-            T spawnObject = Object.Instantiate(Prefab);
+            T spawnObject = Object.Instantiate(ObjectPrefab);
             spawnObject.gameObject.SetActive(true);
-            _pullList.Add(spawnObject);
+            objectsPull.Add(spawnObject);
             return spawnObject;
-        }
-
-        protected virtual void FirstCreate(T prefab)
-        {
-            T firstObject = Object.Instantiate(prefab);
-            firstObject.gameObject.SetActive(false);
-            _pullList.Add(firstObject);
         }
     }
 }

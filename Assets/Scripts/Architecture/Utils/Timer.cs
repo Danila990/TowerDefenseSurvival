@@ -1,20 +1,23 @@
 using UnityEngine;
 
-namespace Code
+namespace TD
 {
     public class Timer
     {
-        private float _timeEnd;
-        private float _timeDuration;
+        private readonly float duration;
+        private float timeEnd;
 
-        public bool IsTimerEnd => Time.time >= _timeEnd;
+        public bool IsTimerEnd => Time.time >= timeEnd;
 
         public Timer(float duration)
         {
-            _timeDuration = duration;
-            _timeEnd = Time.time;
+            this.duration = duration;
+            timeEnd = Time.time;
         }
 
-        public void Start() => _timeEnd = Time.time + _timeDuration;
+        public void Start()
+        {
+            timeEnd = Time.time + duration;
+        }
     }
 }
