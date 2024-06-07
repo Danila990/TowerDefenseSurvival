@@ -1,48 +1,39 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-using Zenject.SpaceFighter;
 using Zenject;
 
 namespace TD
 {
     public class Enemy : MonoBehaviour, IDamageable
     {
-        private EnemyStats _stats;
-        private Tower _tower;
+        private readonly BaseStateMashine _stateMashine;
 
-        public EnemyMovement Movement { get; private set; }
+        public EnemyStats _stats { get; private set; }
+        public Transform _target { get; private set; }
+
+        public bool IsAlive => gameObject.activeSelf;
 
         [Inject]
         private void Construct(Tower tower)
         {
-            _tower = tower;
-            Movement = new EnemyMovement(GetComponent<NavMeshAgent>(), _tower.transform);
-            Movement.OnStartMovement += () => StartCoroutine(Attack());
+            _target = tower.transform;
         }
 
+        private void Awake()
+        {
+            _stateMashine.AddState(new MovementState(GetComponent<NavMeshAgent>(), this));
+            _stateMashine.AddState(new AttackState(this, _target.GetComponent<IDamageable>()));
+            _stateMashine.Enter();
+        }
 
         public void SetupStats(EnemyStats stats)
         {
-            _stats = stats.Clone();
-            Movement.MoveSpeed(_stats._movementSpeed);
+            _stats = stats;
         }
 
         public void TakeDamage(float damage)
         {
 
-        }
-
-        private IEnumerator Attack()
-        {
-            yield return new WaitUntil(() => Vector3.Distance(transform.position, _tower.transform.position) <= _stats._attackRange);
-            Movement.Stop();
-
-            while (true)
-            {
-                _tower.TakeDamage((int)_stats._damage);
-                yield return new WaitForSeconds(_stats._attackSpeed);
-            }
         }
     }
 }

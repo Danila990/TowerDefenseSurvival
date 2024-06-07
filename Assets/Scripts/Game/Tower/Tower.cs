@@ -6,17 +6,17 @@ namespace TD
 {
     public class Tower : MonoBehaviour
     {
-        private TowerStats stats;
+        private TowerStats _stats;
 
         [Inject]
         private void Construct(TowerStats towerStats)
         {
-            this.stats = towerStats;
+            _stats = towerStats;
         }
 
         public void TakeDamage(float damage)
         {
-            stats.ChangeHealth(stats.GetHealth() - damage);
+            _stats.ChangeHealth(_stats.GetHealth() - damage);
         }
     }
 }

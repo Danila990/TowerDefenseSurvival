@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 15953576}
   - component: {fileID: 15953575}
   - component: {fileID: 15953577}
+  - component: {fileID: 15953578}
   m_Layer: 0
   m_Name: ---SceneContext---
   m_TagString: Untagged
@@ -207,6 +208,18 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   towerStats: {fileID: 11400000, guid: ee06b5ac1db6f6b40bdbf3e78bff07d1, type: 2}
   waveSetting: {fileID: 11400000, guid: 45559e0e034422846a3aac6e954c25ce, type: 2}
+--- !u!114 &15953578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15953574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78a86c4588430c4fa9398a45b4aaad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &103364723
 GameObject:
   m_ObjectHideFlags: 0
