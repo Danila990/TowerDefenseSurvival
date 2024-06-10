@@ -4,12 +4,12 @@ using Zenject;
 
 namespace TD
 {
-    public class Tower : MonoBehaviour
+    public class Tower : MonoBehaviour, IDamageable
     {
-        private TowerStats _stats;
+        private TowerHealth _stats;
 
         [Inject]
-        private void Construct(TowerStats towerStats)
+        private void Construct(TowerHealth towerStats)
         {
             _stats = towerStats;
         }

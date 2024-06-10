@@ -3,21 +3,14 @@ using UnityEngine;
 
 namespace TD
 {
-    public class TowerStats : ScriptableObject
+    public class TowerHealth : ScriptableObject
     {
         public event Action<float> OnHealth;
         public event Action<float> OnMaxHealth;
 
         [SerializeField] private float _health = 2000;
+        [SerializeField] private float _maxHealth = 2000;
 
-        private float _maxHealth;
-
-#if UNITY_EDITOR
-        private void OnValidate()
-        {
-            _maxHealth = _health;
-        }
-#endif
         public float GetHealth()
         {
             return _health;
@@ -36,6 +29,7 @@ namespace TD
                 _health = 0;
             }
 
+            Debug.Log("Update Health: " + _health);
             OnHealth?.Invoke(_health);
         }
 

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197d6839e36114e4b852e5ea8c86effc, type: 3}
-  m_Name: TowerStats
+  m_Script: {fileID: 11500000, guid: 3ce7f07da3cd56e449d0fd330bd21d99, type: 3}
+  m_Name: MeleeAttackState
   m_EditorClassIdentifier: 
-  _health: 2000
-  _maxHealth: 2000
+  _decayAttack: 1
+  _damage: 25

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197d6839e36114e4b852e5ea8c86effc, type: 3}
-  m_Name: TowerStats
+  m_Script: {fileID: 11500000, guid: eb86cc70aada791438dbb2cee83abbc3, type: 3}
+  m_Name: MovementState
   m_EditorClassIdentifier: 
-  _health: 2000
-  _maxHealth: 2000
+  _moveSpeed: 1
+  _rangeAtTarget: 2

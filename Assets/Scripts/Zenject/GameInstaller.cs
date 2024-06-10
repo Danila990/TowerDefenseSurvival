@@ -1,13 +1,12 @@
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using Zenject;
 
 namespace TD
 {
     public class GameInstaller : MonoInstaller
     {
-        [SerializeField] private AssetReferenceGameObject _towerRefence;
-        [SerializeField] private TowerStats _towerStats;
+        [SerializeField] private Tower _tower;
+        [SerializeField] private TowerHealth _towerHealth;
         [SerializeField] private WaveSetting _waveSetting;
 
         public override void InstallBindings()
@@ -43,17 +42,16 @@ namespace TD
                 .AsSingle();
         }
 
-        private async void BindTower()
+        private void BindTower()
         {
             Container
-                .Bind<TowerStats>()
-                .FromNewScriptableObject(_towerStats)
+                .Bind<TowerHealth>()
+                .FromNewScriptableObject(_towerHealth)
                 .AsSingle();
 
-            Tower tower = await AddressablesLoader.LoadInstantiate<Tower>(_towerRefence);
             Container
                 .Bind<Tower>()
-                .FromInstance(tower)
+                .FromInstance(_tower)
                 .AsSingle();
         }
     }
