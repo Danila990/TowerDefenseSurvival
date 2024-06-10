@@ -6,9 +6,9 @@ namespace TD
 {
     public class GameInstaller : MonoInstaller
     {
-        [SerializeField] private AssetReferenceGameObject towerRefence;
-        [SerializeField] private TowerStats towerStats;
-        [SerializeField] private WaveSetting waveSetting;
+        [SerializeField] private AssetReferenceGameObject _towerRefence;
+        [SerializeField] private TowerStats _towerStats;
+        [SerializeField] private WaveSetting _waveSetting;
 
         public override void InstallBindings()
         {
@@ -34,7 +34,7 @@ namespace TD
         {
             Container
                 .Bind<WaveSetting>()
-                .FromNewScriptableObject(waveSetting)
+                .FromNewScriptableObject(_waveSetting)
                 .AsSingle();
 
             Container
@@ -47,10 +47,10 @@ namespace TD
         {
             Container
                 .Bind<TowerStats>()
-                .FromNewScriptableObject(towerStats)
+                .FromNewScriptableObject(_towerStats)
                 .AsSingle();
 
-            Tower tower = await AddressablesLoader.LoadInstantiate<Tower>(towerRefence);
+            Tower tower = await AddressablesLoader.LoadInstantiate<Tower>(_towerRefence);
             Container
                 .Bind<Tower>()
                 .FromInstance(tower)

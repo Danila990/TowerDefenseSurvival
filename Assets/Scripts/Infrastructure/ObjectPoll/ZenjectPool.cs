@@ -5,18 +5,18 @@ namespace TD
 {
     public class ZenjectPool<T> : ObjectPool<T> where T : MonoBehaviour
     {
-        protected readonly DiContainer diContainer;
+        protected readonly DiContainer _diContainer;
 
         public ZenjectPool(T prefab, DiContainer diContainer) : base(prefab)
         {
-            this.diContainer = diContainer;
+            _diContainer = diContainer;
         }
 
         public override T Create()
         {
-            T spawnObject = diContainer.InstantiatePrefabForComponent<T>(ObjectPrefab, Vector3.zero, Quaternion.identity, spawnParent);
+            T spawnObject = _diContainer.InstantiatePrefabForComponent<T>(ObjectPrefab, Vector3.zero, Quaternion.identity, _spawnParent);
             spawnObject.gameObject.SetActive(true);
-            objectsPull.Add(spawnObject);
+            _objectsPull.Add(spawnObject);
             return spawnObject;
         }
     }
