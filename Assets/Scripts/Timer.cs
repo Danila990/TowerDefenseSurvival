@@ -9,10 +9,18 @@ namespace TD
 
         public bool IsTimerEnd => Time.time >= _timeEnd;
 
-        public Timer(float duration)
+        public Timer(float duration, bool startDelay = false)
         {
             _duration = duration;
-            _timeEnd = Time.time;
+            if(startDelay)
+            {
+                Start();
+            }
+            else
+            {
+                _timeEnd = Time.time;
+            }
+            
         }
 
         public void Start()

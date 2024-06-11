@@ -7,35 +7,31 @@ namespace TD
     {
         [SerializeField] private Tower _tower;
         [SerializeField] private TowerHealth _towerHealth;
-        [SerializeField] private WaveSetting _waveSetting;
+        [SerializeField] private WavesSetting _wavesSetting;
 
         public override void InstallBindings()
         {
-            BindGame();
             BindTower();
             BindWave();
-        }
-
-        private void BindGame()
-        {
-
-            Container
-                .Bind<IObjectPollFactory>()
-                .To<ObjectPollFactory>()
-                .AsSingle();
         }
 
         private void BindWave()
         {
             Container
-                .Bind<WaveSetting>()
-                .FromNewScriptableObject(_waveSetting)
+                .Bind<IObjectPollFactory>()
+                .To<ObjectPollFactory>()
                 .AsSingle();
 
             Container
-                .Bind<WaveController>()
-                .FromNewComponentOnNewGameObject()
+                .Bind<WavesSetting>()
+                .FromNewScriptableObject(_wavesSetting)
                 .AsSingle();
+
+            Container.
+                Bind<WavesController>()
+                .FromNewComponentOnNewGameObject()
+                .AsSingle()
+                .NonLazy();
         }
 
         private void BindTower()

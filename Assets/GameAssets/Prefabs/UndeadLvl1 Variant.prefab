@@ -95,12 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7895facaeb5850d4a9e47c67b208ea5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_stats>k__BackingField:
-    _health: 5
-    _moveSpeed: 0.2
-    _attackSpeed: 5
-    _attackRange: 5
-    _attackDamage: 5
+  _stateMashine:
+    _states:
+    - {fileID: 11400000, guid: 3400993eb773b31498955ba13d114ee8, type: 2}
+    - {fileID: 11400000, guid: 6e5035808b9cb424da9d24f43cd09331, type: 2}
+  _health: 50
 --- !u!195 &3779979294951439492
 NavMeshAgent:
   m_ObjectHideFlags: 0
