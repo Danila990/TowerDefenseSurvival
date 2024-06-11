@@ -13,10 +13,14 @@ namespace TD
 
         public void Init(Enemy enemy)
         {
+            List<EnemyState> states = new List<EnemyState>();
             foreach (EnemyState state in _states)
             {
-                state.Init(this, enemy);
+                EnemyState enemyState = GameObject.Instantiate(state);
+                states.Add(enemyState);
+                enemyState.Init(this, enemy);
             }
+            _states = states;
         }
 
         public void NextState()

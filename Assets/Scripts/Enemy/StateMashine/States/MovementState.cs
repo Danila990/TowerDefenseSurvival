@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace TD
 {
-    [CreateAssetMenu(fileName = "MovementState", menuName = "EnemyState/MovementState")]
+    [CreateAssetMenu(fileName = "MovementStateData", menuName = "EnemyState/MovementStateData")]
     public class MovementState : EnemyState
     {
         [SerializeField] private float _moveSpeed = 1f;

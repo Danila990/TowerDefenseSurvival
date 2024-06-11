@@ -18,10 +18,6 @@ namespace TD
 
         private void BindGame()
         {
-            Container
-                .Bind<GameManager>()
-                .FromNew()
-                .AsSingle();
 
             Container
                 .Bind<IObjectPollFactory>()

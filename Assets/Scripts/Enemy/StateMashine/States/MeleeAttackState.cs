@@ -2,7 +2,7 @@
 
 namespace TD
 {
-    [CreateAssetMenu(fileName = "MeleeAttackState", menuName = "EnemyState/MeleeAttackState")]
+    [CreateAssetMenu(fileName = "MeleeAttackStateData", menuName = "EnemyState/MeleeAttackStateData")]
     public class MeleeAttackState : EnemyState
     {
         [SerializeField] private float _decayAttack = 1f;
