@@ -5,14 +5,29 @@ namespace TD
 {
     public class GameInstaller : MonoInstaller
     {
+        [SerializeField] private GameDatabase _database;
+
         [SerializeField] private Tower _tower;
-        [SerializeField] private TowerHealth _towerHealth;
         [SerializeField] private WavesSetting _wavesSetting;
 
         public override void InstallBindings()
         {
+            BindGameDatabase();
             BindTower();
             BindWave();
+        }
+
+        private void BindGameDatabase()
+        {
+            Container
+                .Bind<GameDatabase>()
+                .FromScriptableObject(_database)
+                .AsSingle();
+
+            Container
+                .Bind<TowerData>()
+                .FromNewScriptableObject(_database.GetData<TowerData>())
+                .AsSingle();
         }
 
         private void BindWave()
@@ -36,11 +51,6 @@ namespace TD
 
         private void BindTower()
         {
-            Container
-                .Bind<TowerHealth>()
-                .FromNewScriptableObject(_towerHealth)
-                .AsSingle();
-
             Container
                 .Bind<Tower>()
                 .FromInstance(_tower)

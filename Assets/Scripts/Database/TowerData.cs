@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace TD
 {
-    public class TowerHealth : ScriptableObject
+    [CreateAssetMenu(fileName = "TowerData", menuName = "Database/TowerData")]
+    public class TowerData : ScriptableObject
     {
         public event Action<float> OnHealth;
         public event Action<float> OnMaxHealth;
@@ -41,6 +42,7 @@ namespace TD
                 _maxHealth = 0;
             }
 
+            Debug.Log("Update Max Health: " + _health);
             OnMaxHealth?.Invoke(_maxHealth);
         }
     }

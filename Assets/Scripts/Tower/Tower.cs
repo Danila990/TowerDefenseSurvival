@@ -6,10 +6,10 @@ namespace TD
 {
     public class Tower : MonoBehaviour, IDamageable
     {
-        private TowerHealth _stats;
+        private TowerData _stats;
 
         [Inject]
-        private void Construct(TowerHealth towerStats)
+        private void Construct(TowerData towerStats)
         {
             _stats = towerStats;
         }
