@@ -10121,9 +10121,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 828173932}
     m_Modifications:
+    - target: {fileID: 1998022585432223901, guid: 6fdf727b807ac2840a98a265f8880068, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1998022585432245665, guid: 6fdf727b807ac2840a98a265f8880068, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1998022585432259187, guid: 6fdf727b807ac2840a98a265f8880068, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4765671178383555771, guid: 6fdf727b807ac2840a98a265f8880068, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765671178383555771, guid: 6fdf727b807ac2840a98a265f8880068, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058593156498183819, guid: 6fdf727b807ac2840a98a265f8880068, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058753870619096251, guid: 6fdf727b807ac2840a98a265f8880068, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6087373308766597667, guid: 6fdf727b807ac2840a98a265f8880068, type: 3}
       propertyPath: m_LocalPosition.x

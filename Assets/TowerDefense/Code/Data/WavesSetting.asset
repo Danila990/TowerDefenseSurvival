@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveDatas:
   - <_enemyPrefab>k__BackingField: {fileID: 2488133190925618082, guid: 52bfd9e6477483d44a94ab86c80b08c8, type: 3}
+    <_startDelay>k__BackingField: 5
+    <_waveDuration>k__BackingField: 300
+    <_spawnDelay>k__BackingField: 4
+  - <_enemyPrefab>k__BackingField: {fileID: 972092583622841456, guid: e414e178b18a0f345b528cd3bd7d693e, type: 3}
     <_startDelay>k__BackingField: 1
     <_waveDuration>k__BackingField: 300
-    <_spawnDelay>k__BackingField: 0.2
+    <_spawnDelay>k__BackingField: 1
   <_rangeSpawn>k__BackingField: {x: 25, y: 35}
