@@ -9,7 +9,6 @@ namespace Code.TowerDefense
         [SerializeField] private WaveData[] _waveDatas;
         [field: SerializeField] public Vector2 _rangeSpawn { get; private set; } = new Vector2Int(25, 35);
 
-
         public WaveData[] GetWaveDatas()
         {
             return _waveDatas;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Code.TowerDefense
 {
-    public class WaveController : MonoBehaviour
+    public class WaveController : MonoBehaviour, IInitializable
     {
         private readonly List<WaveEnemyFactory> _waveFactorys = new List<WaveEnemyFactory>();
         private WaveFactoryCreator _waveFactoryCreator;
@@ -21,7 +21,7 @@ namespace Code.TowerDefense
             _rangeSpawn = wavesSetting._rangeSpawn;
         }
 
-        private void Awake()
+        public void Initialize()
         {
             CreateFactorys();
             StartFactorys();

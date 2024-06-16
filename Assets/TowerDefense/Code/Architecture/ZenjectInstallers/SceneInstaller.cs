@@ -9,6 +9,7 @@ namespace Code.TowerDefense
 
         public override void InstallBindings()
         {
+            Container.BindInterfacesTo<Bootstrap>().FromNew().AsSingle();
             Container.Bind<Player>().FromInstance(_player).AsSingle();
             Container.Bind<WaveFactoryCreator>().FromNew().AsSingle();
             Container.Bind<WaveController>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
