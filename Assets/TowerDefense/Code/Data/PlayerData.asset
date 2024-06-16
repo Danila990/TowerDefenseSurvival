@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a3798106814e442a9a924b6df1caaa, type: 3}
-  m_Name: EnemyDataContainer
+  m_Script: {fileID: 11500000, guid: a9b10411c0c79304686f9debb63d6d87, type: 3}
+  m_Name: PlayerData
   m_EditorClassIdentifier: 
-  _enemyDatas:
-  - {fileID: 11400000, guid: cb8a0acc85582744e8b7b55fc4244165, type: 2}
+  <_health>k__BackingField: 2000
+  <_maxHealth>k__BackingField: 2000

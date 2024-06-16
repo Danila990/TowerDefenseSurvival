@@ -10,13 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: EnemyData
-  m_EditorClassIdentifier: Assembly-CSharp:TD.Database:EnemyData
-  _prefab: {fileID: 4743764547538942196, guid: a9901b6b636c68f4aa2e294af2ba1c74, type: 3}
-  _enemyStats:
-    Damage: 25
-    AttackDelay: 1
-    RangeAttack: 3
-    MoveSpeed: 1
-    Health: 50
+  m_Name: WaveData
+  m_EditorClassIdentifier: Assembly-CSharp:TD.Database:WaveData
   <_enemyType>k__BackingField: 0
+  TimeToStart: 0
+  TimeToStop: 300
+  SpawnDelay: 1

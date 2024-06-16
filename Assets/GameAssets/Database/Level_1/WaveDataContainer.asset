@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a3798106814e442a9a924b6df1caaa, type: 3}
-  m_Name: EnemyDataContainer
+  m_Script: {fileID: 11500000, guid: 6acd97aa0dc94b3468510c464cc34b58, type: 3}
+  m_Name: WaveDataContainer
   m_EditorClassIdentifier: 
-  _enemyDatas:
-  - {fileID: 11400000, guid: cb8a0acc85582744e8b7b55fc4244165, type: 2}
+  _waveDatas:
+  - {fileID: 11400000, guid: dab00a5efef22f740b56a61725923768, type: 2}
+  _rangeSpawn: {x: 25, y: 35}
+  _durationAllWaves: 300

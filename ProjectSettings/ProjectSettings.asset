@@ -235,6 +235,7 @@ PlayerSettings:
   iOSMetalForceHardShadows: 0
   metalEditorSupport: 1
   metalAPIValidation: 1
+  metalCompileShaderBinary: 0
   iOSRenderExtraFrameOnPause: 0
   iosCopyPluginsCodeInsteadOfSymlink: 0
   appleDeveloperTeamID: 
@@ -855,7 +856,7 @@ PlayerSettings:
     PS5: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN
     QNX: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN
     Stadia: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN
-    Standalone: STEAMWORKS_NET;UNITY_POST_PROCESSING_STACK_V2;DOTWEEN
+    Standalone: STEAMWORKS_NET;UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;YG_PLUGIN_YANDEX_GAME
     VisionOS: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN
     WebGL: DOTWEEN;YG_PLUGIN_YANDEX_GAME;UNITY_POST_PROCESSING_STACK_V2
     Windows Store Apps: DOTWEEN
