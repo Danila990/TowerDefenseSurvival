@@ -1,19 +1,21 @@
 ﻿using Zenject;
 
-namespace Code.TowerDefense
+namespace Code.TowerDefense.Architecture
 {
     public class Bootstrap : IInitializable
     {
-        private WaveController _wavesController;
+        private readonly WaveController _wavesController;
+        private readonly PlayerAbility _playerAbility;
 
-        [Inject]
-        private void Construct(WaveController wavesController)
+        public Bootstrap(WaveController wavesController, PlayerAbility playerAbility)
         {
             _wavesController = wavesController;
+            _playerAbility = playerAbility;
         }
 
         public void Initialize()
         {
+            _playerAbility.Initialize();
             _wavesController.Initialize();
         }
     }
