@@ -26,7 +26,7 @@ namespace Code.TowerDefense
                 throw new System.Exception("The factory settings are already running");
             }
 
-            _poolEnemy.CreateStartPool(1);
+            _poolEnemy.CreateStartPool(_waveData._startPool);
             _waveController.StartCoroutine(StartFactoryCoroutine());
             _isStartFactory = true;
         }

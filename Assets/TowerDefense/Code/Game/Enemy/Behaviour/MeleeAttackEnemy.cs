@@ -21,7 +21,7 @@ namespace Code.TowerDefense
 
         public override void Enter()
         {
-            EnemyStats enemyStats = _enemy._stats;
+            EnemyStats enemyStats = _enemy.GetStats();
             _timer = new Timer(enemyStats.AttackDelay);
             _rangeAttack = enemyStats.AttackRange;
             _damage = enemyStats.AttackDamage;

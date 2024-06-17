@@ -22,5 +22,6 @@ namespace Code.TowerDefense
         [field: SerializeField] public float _startDelay { get; private set; }  = 0;
         [field: SerializeField] public float _waveDuration { get; private set; } = 300f;
         [field: SerializeField] public float _spawnDelay { get; private set; } = 1f;
+        [field: SerializeField] public int _startPool { get; private set; } = 0;
     }
 }

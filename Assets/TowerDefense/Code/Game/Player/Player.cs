@@ -15,7 +15,7 @@ namespace Code.TowerDefense
 
         public void TakeDamage(float damage)
         {
-            _playerData.ChangeHealth(_playerData._health - damage);
+            _playerData.ChangeHealth(damage);
         }
     }
 }

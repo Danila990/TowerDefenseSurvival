@@ -22,7 +22,7 @@ namespace Code.TowerDefense
 
         public override void Enter()
         {
-            EnemyStats enemyStats = _enemy._stats;
+            EnemyStats enemyStats = _enemy.GetStats();
             _rangeAttack = enemyStats.AttackRange;
             _navMeshAgent.speed = enemyStats.MoveSpeed;
             _navMeshAgent.isStopped = false;

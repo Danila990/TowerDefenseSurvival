@@ -7,18 +7,26 @@ namespace Code.TowerDefense
     {
         [SerializeField] private EnemyBehaviour _moveBehaviour;
         [SerializeField] private EnemyBehaviour _attackBehaviour;
+        [SerializeField] private EnemyStats _stats;
 
         private EnemyBehaviour _currentBehaviour;
         private Player _player;
         private bool _isInit = false;
-
-        [field: SerializeField] public EnemyStats _stats {  get; private set; }
 
         [Inject]
         private void Construct(Player player)
         {
             _player = player;
         }
+
+        private void Update()
+        {
+            if (_currentBehaviour != null)
+            {
+                _currentBehaviour.Tick();
+            }
+        }
+
 
         public void Activate()
         {
@@ -32,12 +40,9 @@ namespace Code.TowerDefense
             SetMoveBehaviour();
         }
 
-        private void Update()
+        public EnemyStats GetStats()
         {
-            if (_currentBehaviour != null)
-            {
-                _currentBehaviour.Tick();
-            }
+            return _stats;
         }
 
         public void SetMoveBehaviour()

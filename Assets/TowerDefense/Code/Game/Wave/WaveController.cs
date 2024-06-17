@@ -70,7 +70,7 @@ namespace Code.TowerDefense
         {
             foreach (WaveData waveData in _wavesSetting.GetWaveDatas())
             {
-                WaveEnemyFactory waveEnemyFactory = _waveFactoryCreator.CreateFactory(waveData, this);
+                WaveEnemyFactory waveEnemyFactory = _waveFactoryCreator.CreateFactory(waveData);
                 _waveFactorys.Add(waveEnemyFactory);
             }
         }

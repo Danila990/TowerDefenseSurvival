@@ -6,13 +6,29 @@ namespace Code.TowerDefense
     [CreateAssetMenu(fileName = "PlayerData", menuName = "TowerDefense/PlayerData")]
     public class PlayerData : ScriptableObject
     {
+        [SerializeField] private float _health = 2000;
+        [SerializeField] private float _maxHealth = 2000;
+
         public event Action<float> OnHealth;
         public event Action<float> OnMaxHealth;
 
-        [field: SerializeField] public float _health { get; private set; } = 2000;
-        [field: SerializeField] public float _maxHealth { get; private set; } = 2000;
+        public float GetHealth()
+        {
+            return _health; 
+        }
 
-        public void ChangeHealth(float health)
+        public float GetMaxHealth()
+        {
+            return _maxHealth;
+        }
+
+        public void ChangeHealth(float amount)
+        {
+            float currentHealth = _health - amount;
+            SetHealth(currentHealth);
+        }
+
+        public void SetHealth(float health)
         {
             _health = health;
             if (_health < 0)
@@ -24,7 +40,7 @@ namespace Code.TowerDefense
             OnHealth?.Invoke(_health);
         }
 
-        public void ChangeMaxHealth(float maxHealth)
+        public void SetMaxHealth(float maxHealth)
         {
             _maxHealth = maxHealth;
             if (_maxHealth < 0)
