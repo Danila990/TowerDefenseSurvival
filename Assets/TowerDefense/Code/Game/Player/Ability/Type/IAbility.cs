@@ -1,7 +1,7 @@
 ﻿
 namespace Code.TowerDefense
 {
-    public interface  IAbility 
+    public interface IAbility 
     {
         public void Init();
     }

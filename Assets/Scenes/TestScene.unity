@@ -10121,6 +10121,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 828173932}
     m_Modifications:
+    - target: {fileID: -4117025703324521893, guid: 6fdf727b807ac2840a98a265f8880068, type: 3}
+      propertyPath: _testability._prefab
+      value: 
+      objectReference: {fileID: 1849906530276575700, guid: 82573777eec57424eb80108dbc37c8b2, type: 3}
+    - target: {fileID: -4117025703324521893, guid: 6fdf727b807ac2840a98a265f8880068, type: 3}
+      propertyPath: _testability._attaclDelay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1998022585432223901, guid: 6fdf727b807ac2840a98a265f8880068, type: 3}
       propertyPath: m_Layer
       value: 7

@@ -4,8 +4,11 @@ using UnityEngine;
 
 namespace Code.TowerDefense
 {
-    public class Bullet
+    public class Bullet : MonoBehaviour 
     {
-        
+        public void Init(float damage, float speed)
+        {
+
+        }
     }
 }

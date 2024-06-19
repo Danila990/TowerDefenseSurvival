@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Code.TowerDefense
 {
-    public class AOE
+    public class AOE : MonoBehaviour
     {
         
     }

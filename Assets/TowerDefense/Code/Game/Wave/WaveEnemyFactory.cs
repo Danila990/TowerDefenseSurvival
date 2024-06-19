@@ -19,6 +19,11 @@ namespace Code.TowerDefense
             _poolEnemy = new ZenjectPool<Enemy>(_waveData._enemyPrefab, diContainer);
         }
 
+        public Enemy[] GetAllEnemy()
+        {
+            return _poolEnemy.GetAll();
+        }
+
         public void StartFactory()
         {
             if(_isStartFactory)

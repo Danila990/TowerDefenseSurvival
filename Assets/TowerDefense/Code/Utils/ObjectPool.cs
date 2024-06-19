@@ -16,6 +16,11 @@ namespace Code.TowerDefense
             _spawnParent = new GameObject("ObjectPool: " + prefab.name).transform;
         }
 
+        public T[] GetAll()
+        {
+            return _poolList.ToArray(); 
+        }
+
         public T Get()
         {
             foreach (T poolObject in _poolList)
@@ -40,7 +45,7 @@ namespace Code.TowerDefense
 
         public virtual T Create(bool isActive = true)
         {
-            T newObject = Object.Instantiate(Prefab);
+            T newObject = Object.Instantiate(Prefab, _spawnParent);
             newObject.gameObject.SetActive(isActive);
             _poolList.Add(newObject);
             return newObject;

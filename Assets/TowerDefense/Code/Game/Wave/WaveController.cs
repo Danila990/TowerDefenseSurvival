@@ -27,6 +27,16 @@ namespace Code.TowerDefense
             StartFactorys();
         }
 
+        public List<Enemy[]> GetEnemys()
+        {
+            List<Enemy[]> enemys = new List<Enemy[]>();
+            foreach (WaveEnemyFactory factory in _waveFactorys)
+            {
+                enemys.Add(factory.GetAllEnemy());
+            }
+            return enemys;
+        }
+
         public void SetEnemy(Enemy enemy)
         {
             enemy.transform.position = GetRandomPointAroundTower();

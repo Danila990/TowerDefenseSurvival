@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Playables;
 using UnityEngine;
 using Zenject;
 
@@ -8,29 +9,34 @@ namespace Code.TowerDefense
 {
     public class PlayerAbility : MonoBehaviour, IInitializable
     {
+        [SerializeField] private BulletAbility _testability;
+
         private Dictionary<Type, IAbilityGroup> _abilityControllers;
 
         public void Initialize()
         {
             _abilityControllers = new Dictionary<Type, IAbilityGroup>()
             {
-                {typeof(AOEAbility), new AOEGroup()},
-                {typeof(BulletAbility), new BulletGroup()}
+                {typeof(AOEAbility), new AbilityGroup()},
+                {typeof(BulletAbility), new AbilityGroup()}
             };
+
+            AddAbility<BulletAbility>(_testability);
         }
 
-        public void AddAbility<T>(IAbility ability) where T : IAbility
+        public void AddAbility<T>(IAbility ability)
         {
             IAbilityGroup abilityGroup = GetAbilityGroup<T>();
             abilityGroup.AddAbility(ability);
         }
 
-        private IAbilityGroup GetAbilityGroup<T>() where T : IAbility
+        private IAbilityGroup GetAbilityGroup<T>()
         {
+
             var type = typeof(T);
             if (!_abilityControllers.ContainsKey(type))
             {
-                throw new NullReferenceException($"Ability Group: {typeof(T)} is null");
+                _abilityControllers.Add(type, new AbilityGroup());
             }
 
             return _abilityControllers[type];
