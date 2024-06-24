@@ -1,6 +1,0 @@
-Id;Type;Duration;Stackable;IconPath;Interval;Damage;SlowMovementSpeedCoefficient;SlowAttackSpeedCoefficient
-1;FireEffect;3;0;Effects/btn_icon_fire;1;8;0;0
-2;FrostEffect;5;0;Effects/btn_icon_snowflake;1;0;0.6;0.5
-3;PoisonEffect;2;0;Effects/btn_icon_skull;0.8;4;0.4;0
-4;RockEffect;01.май;0;Effects/joystick_button_icon_attack;0;0;0;0
-5;FearEffect;3;0;Effects/btn_icon_sleepmode;1;0;0;0

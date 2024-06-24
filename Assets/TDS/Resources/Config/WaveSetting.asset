@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9ef60e03b98b5409dacd1d8eb6ca5f, type: 3}
+  m_Name: WaveSetting
+  m_EditorClassIdentifier: 
+  _waveDatas:
+  - <_enemyPrefab>k__BackingField: {fileID: 1578113941607248051, guid: 17e73ad1fbbb41848b7556fe22b30362,
+      type: 3}
+    <_rangeStartPoll>k__BackingField: 5
+    <_waveConfig>k__BackingField:
+      StartAwaitTime: 1
+      SpawnDelay: 1.5
+  - <_enemyPrefab>k__BackingField: {fileID: 8293512715682075044, guid: 54e9ef57c35b1f64b97ac6e2b701bf23,
+      type: 3}
+    <_rangeStartPoll>k__BackingField: 5
+    <_waveConfig>k__BackingField:
+      StartAwaitTime: 5
+      SpawnDelay: 7
