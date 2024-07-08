@@ -508,8 +508,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerBody: {fileID: 703878875}
-  _player: {fileID: 11400000, guid: da15dbd7277725c4a9828b2e087ee170, type: 2}
-  _waveSetting: {fileID: 11400000, guid: 870de51b3e54247488a7f88d488b078d, type: 2}
+  _waveContainer: {fileID: 11400000, guid: 094a4190f8c11b7498750dc93479fcf5, type: 2}
+  _playerData: {fileID: 11400000, guid: 11a9708365a8f7941befbd2d7556c5de, type: 2}
 --- !u!114 &781321355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,7 +856,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4669799566241669295, guid: d9e564ca64780fa4ea6a481544d03f7f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
