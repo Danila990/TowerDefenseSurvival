@@ -32,7 +32,6 @@ namespace TowerDefense
                 _config.Health = 0;
             }
 
-            Debug.Log("Update Health: " + Health);
             OnHealth?.Invoke(Health);
         }
 
@@ -44,7 +43,6 @@ namespace TowerDefense
                 _config.MaxHealth = 0;
             }
 
-            Debug.Log("Update Max Health: " + MaxHealth);
             OnMaxHealth?.Invoke(MaxHealth);
         }
     }

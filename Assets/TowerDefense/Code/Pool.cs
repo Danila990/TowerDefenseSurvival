@@ -1,46 +1,43 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace TowerDefense
+public class Pool<T> where T : MonoBehaviour
 {
-    public class Pool<T> where T : MonoBehaviour
+    protected readonly List<T> _pool = new List<T>(10);
+    protected readonly Transform _parent;
+
+    public readonly T Prefab;
+
+    public Pool(T prefab)
     {
-        protected readonly List<T> _pool = new List<T>(10);
-        protected readonly Transform _parent;
+        Prefab = prefab;
+        _parent = new GameObject("Pool: " + prefab.name).transform;
+    }
 
-        public readonly T Prefab;
+    public T[] GetAll()
+    {
+        return _pool.ToArray();
+    }
 
-        public Pool(T prefab)
+    public T Get()
+    {
+        foreach (T poolObject in _pool)
         {
-            Prefab = prefab;
-            _parent = new GameObject("Pool: " + prefab.name).transform;
-        }
-
-        public T[] GetAll()
-        {
-            return _pool.ToArray(); 
-        }
-
-        public T Get()
-        {
-            foreach (T poolObject in _pool)
+            if (poolObject.gameObject.activeInHierarchy == false)
             {
-                if (poolObject.gameObject.activeInHierarchy == false)
-                {
-                    poolObject.gameObject.SetActive(true);
-                    return poolObject;
-                }
+                poolObject.gameObject.SetActive(true);
+                return poolObject;
             }
-
-            return Create();
         }
 
-        public virtual T Create(bool isActive = true)
-        {
-            T newObject = Object.Instantiate(Prefab, _parent);
-            newObject.gameObject.SetActive(isActive);
-            _pool.Add(newObject);
-            return newObject;
-        }
+        return Create();
+    }
+
+    public virtual T Create(bool isActive = true)
+    {
+        T newObject = Object.Instantiate(Prefab, _parent);
+        newObject.gameObject.SetActive(isActive);
+        _pool.Add(newObject);
+        return newObject;
     }
 }

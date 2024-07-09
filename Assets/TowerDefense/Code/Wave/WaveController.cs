@@ -18,11 +18,6 @@ namespace TowerDefense
             _enemyFactory = enemyFactory;
             _spawnEnemyPoint = playerBody.transform.position;
             _waveContainer = waveContainer;
-            Start();
-        }
-
-        private void Start()
-        {
             CreateSpawnFactorys();
         }
 

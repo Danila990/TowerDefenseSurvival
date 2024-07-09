@@ -1,40 +1,37 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace TowerDefense
+public sealed class Coroutines : MonoBehaviour
 {
-    public sealed class Coroutines : MonoBehaviour
+    private static Coroutines m_instance;
+
+    private static Coroutines _instance
     {
-        private static Coroutines m_instance;
-
-        private static Coroutines _instance
+        get
         {
-            get 
-            { 
-                if(m_instance == null)
-                {
-                    var go = new GameObject("[Coroutines Manager]");
-                    m_instance = go.AddComponent<Coroutines>();
-                    DontDestroyOnLoad(go);
-                }
-
-                return m_instance; 
-            }
-        }
-
-        public static Coroutine StartRountine(IEnumerator enumerator)
-        {
-            return _instance.StartCoroutine(enumerator);
-        }
-
-        public static void StopRountine(Coroutine rountine)
-        {
-            if(rountine == null)
+            if (m_instance == null)
             {
-                return;
+                var go = new GameObject("[Coroutines Manager]");
+                m_instance = go.AddComponent<Coroutines>();
+                DontDestroyOnLoad(go);
             }
 
-            _instance.StopCoroutine(rountine);
+            return m_instance;
         }
+    }
+
+    public static Coroutine StartRountine(IEnumerator enumerator)
+    {
+        return _instance.StartCoroutine(enumerator);
+    }
+
+    public static void StopRountine(Coroutine rountine)
+    {
+        if (rountine == null)
+        {
+            return;
+        }
+
+        _instance.StopCoroutine(rountine);
     }
 }
