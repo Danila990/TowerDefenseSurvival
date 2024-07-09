@@ -72,12 +72,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveBehaviour: {fileID: 8315509484657903464}
   _attackBehaviour: {fileID: 6221573586830807279}
-  _stats:
-    AttackDamage: 50
-    AttackDelay: 1
-    AttackRange: 3
-    MoveSpeed: 0.8
-    Health: 150
+  _config:
+    AttackDamage: 0
+    AttackDelay: 0
+    AttackRange: 0
+    MoveSpeed: 0
+    Health: 0
 --- !u!114 &6221573586830807279
 MonoBehaviour:
   m_ObjectHideFlags: 0

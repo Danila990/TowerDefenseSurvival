@@ -29,6 +29,16 @@ namespace TowerDefense
             }
         }
 
+        public void TakeDamage(float damage)
+        {
+            _config.Health -= damage;
+            if(_config.Health <= 0)
+            {
+                _config.Health = 0;
+                gameObject.SetActive(false);
+            }
+        }
+
         public void SetConfig(EnemyConfig config)
         {
             _config = config;

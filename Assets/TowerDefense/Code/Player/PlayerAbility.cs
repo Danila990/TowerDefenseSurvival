@@ -1,45 +1,49 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Playables;
 using UnityEngine;
 using Zenject;
 
 namespace TowerDefense
 {
-    public class PlayerAbility : MonoBehaviour, IInitializable
+    public class PlayerAbility : MonoBehaviour
     {
         [SerializeField] private BulletAbility _testability;
 
-        private Dictionary<Type, IAbilityGroup> _abilityControllers;
+        private Dictionary<Type, List<Ability>> _abilitys = new Dictionary<Type, List<Ability>>();
+        private EnemyLocator _enemyLocator;
 
-        public void Initialize()
+        [Inject]
+        private void Construct(EnemyLocator enemyLocator)
         {
-            _abilityControllers = new Dictionary<Type, IAbilityGroup>()
-            {
-                {typeof(AOEAbility), new AbilityGroup()},
-                {typeof(BulletAbility), new AbilityGroup()}
-            };
-
-            AddAbility<BulletAbility>(_testability);
+            _enemyLocator = enemyLocator;
         }
 
-        public void AddAbility<T>(IAbility ability)
+        public void Start()
         {
-            IAbilityGroup abilityGroup = GetAbilityGroup<T>();
-            abilityGroup.AddAbility(ability);
+            AddAbility(_testability);
         }
 
-        private IAbilityGroup GetAbilityGroup<T>()
+        public void AddAbility(Ability ability)
+        {
+            List<Ability> abilitys = GetAbilitys(ability);
+            abilitys.Add(ability);
+            ability.Init(this, _enemyLocator);
+        }
+
+        public void UpgradeAbility()
         {
 
-            var type = typeof(T);
-            if (!_abilityControllers.ContainsKey(type))
+        }
+
+        private List<Ability> GetAbilitys(Ability ability)
+        {
+            var type = ability.GetType();
+            if (!_abilitys.ContainsKey(type))
             {
-                _abilityControllers.Add(type, new AbilityGroup());
+                _abilitys.Add(type, new List<Ability>());
             }
 
-            return _abilityControllers[type];
+            return _abilitys[type];
         }
     }
 }

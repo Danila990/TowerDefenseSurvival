@@ -13,14 +13,16 @@ namespace TowerDefense.Architecture
 
         public override void InstallBindings()
         {
-            BindData();
-            BindGameplay();
+            BindWave();
             BindPlayer();
         }
 
-        private void BindData()
+        private void BindWave()
         {
             Container.Bind<WaveContainer>().FromScriptableObject(_waveContainer).AsSingle();
+            Container.Bind<IEnemyFactory>().To<EnemyFactory>().FromNew().AsSingle();
+            Container.Bind<WaveController>().FromNew().AsSingle().NonLazy();
+            Container.Bind<EnemyLocator>().FromNew().AsSingle().NonLazy();
         }
 
         private void BindPlayer()
@@ -29,12 +31,6 @@ namespace TowerDefense.Architecture
             Container.Bind<Player>().FromInstance(player).AsSingle();
             Container.Bind<PlayerBody>().FromInstance(_playerBody).AsSingle();
             Container.Bind<PlayerAbility>().FromInstance(_playerBody.GetComponent<PlayerAbility>()).AsSingle();
-        }
-
-        private void BindGameplay()
-        {
-            Container.Bind<IEnemyFactory>().To<EnemyFactory>().FromNew().AsSingle();
-            Container.Bind<WaveController>().FromNew().AsSingle().NonLazy();
         }
     }
 }

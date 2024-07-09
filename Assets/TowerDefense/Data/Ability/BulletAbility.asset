@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66730d5ca470af14396a42329d947531, type: 3}
-  m_Name: WaveData
+  m_Script: {fileID: 11500000, guid: 681f9369717cda04ea8ab59ded9bf4c4, type: 3}
+  m_Name: BulletAbility
   m_EditorClassIdentifier: 
-  _enemyData: {fileID: 11400000, guid: 9a62ceddd045c4b46adc7da8d32b242a, type: 2}
-  _waveConfig:
-    StartAwaitTime: 1
-    SpawnDelay: 1
+  _prefab: {fileID: 1963910537101598481, guid: cb8110bcf7600664a8ff1792446621d0, type: 3}
+  _config:
+    Damage: 50
+    AttackRange: 2
+    AttackDelay: 0.2
+    BulletSpeed: 20

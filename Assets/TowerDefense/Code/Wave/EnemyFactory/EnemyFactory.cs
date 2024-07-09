@@ -24,5 +24,16 @@ namespace TowerDefense
 
             return _pools[enemy].Get();
         }
+
+        public List<Enemy[]> GetAllEnemy()
+        {
+            List<Enemy[]> list = new List<Enemy[]>(3);
+            foreach (InjectPool<Enemy> poll in _pools.Values)
+            {
+                list.Add(poll.GetAll());
+            }
+
+            return list;
+        }
     }
 }
