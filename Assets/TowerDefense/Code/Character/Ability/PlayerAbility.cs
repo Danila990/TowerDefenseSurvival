@@ -10,7 +10,6 @@ namespace MyCode
     {
         private readonly Dictionary<string, Ability> _abilitys;
 
-
         public void AddAbility(Ability ability)
         {
             GetAbility(ability).Add();
