@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace TowerDefense
+namespace MyCode
 {
     public interface IEnemyFactory
     {
         public Enemy CreateEnemy(Enemy enemy, Transform parent = null);
-        public List<Enemy[]> GetAllEnemy();
+        public IReadOnlyList<Enemy> GetAllEnemy();
     }
 }

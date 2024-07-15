@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-namespace TowerDefense
+namespace MyCode
 {
-    [CreateAssetMenu(fileName = "WaveContainer", menuName = "TowerDefense/Wave/WaveContainer")]
+    [CreateAssetMenu(fileName = "WaveContainer", menuName = "MyCode/Wave/WaveContainer")]
     public class WaveContainer : ScriptableObject
     {
         [SerializeField] private WaveData[] _waveDatas;

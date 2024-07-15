@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace TowerDefense
+namespace MyCode
 {
     [Serializable]
     public struct WaveConfig

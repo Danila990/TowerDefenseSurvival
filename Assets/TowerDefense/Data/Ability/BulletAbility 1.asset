@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a120475b58a2909429a0717706707c60, type: 3}
-  m_Name: BulletAbility
+  m_Name: BulletAbility 1
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 1963910537101598481, guid: cb8110bcf7600664a8ff1792446621d0, type: 3}
+  _prefab: {fileID: 1963910537101598481, guid: 0127880d16798414ca288b49e883736a, type: 3}
   _config:
-    Damage: 25
-    AttackRange: 8
-    AttackDelay: 0.1
+    Damage: 50
+    AttackRange: 35
+    AttackDelay: 1.3
     AbilityDelay: 0.05
-    Priority: 0
-    BulletSpeed: 20
+    Priority: 1
+    BulletSpeed: 10

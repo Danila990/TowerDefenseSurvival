@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TowerDefense
+namespace MyCode
 {
     [RequireComponent(typeof(Enemy))]
     public class MeleeAttackEnemy : EnemyBehaviour

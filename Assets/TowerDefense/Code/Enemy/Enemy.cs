@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using Zenject;
 
-namespace TowerDefense
+namespace MyCode
 {
     public class Enemy : MonoBehaviour
     {
@@ -15,8 +14,7 @@ namespace TowerDefense
 
         public EnemyConfig Config => _config;
 
-        [Inject]
-        private void Construct(PlayerBody playerBody)
+        public void Init(PlayerBody playerBody)
         {
             _playerBody = playerBody;
         }
@@ -37,11 +35,6 @@ namespace TowerDefense
                 _config.Health = 0;
                 gameObject.SetActive(false);
             }
-        }
-
-        public void SetConfig(EnemyConfig config)
-        {
-            _config = config;
         }
 
         public void SetMoveBehaviour()

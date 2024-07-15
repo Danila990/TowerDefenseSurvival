@@ -1,39 +1,29 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
-namespace TowerDefense
+namespace MyCode
 {
-    public class EnemyFactory : IEnemyFactory
+    public class EnemyFactory : IEnemyFactory, IService
     {
-        private readonly DiContainer _diContainer;
-        private Dictionary<Enemy, InjectPool<Enemy>> _pools = new Dictionary<Enemy, InjectPool<Enemy>>();
-
-        public EnemyFactory(DiContainer diContainer)
-        {
-            _diContainer = diContainer;
-        }
+        private readonly Dictionary<Enemy, Pool<Enemy>> _pools = new Dictionary<Enemy, Pool<Enemy>>();
+        private readonly List<Enemy> _enemys = new List<Enemy>(25);
 
         public Enemy CreateEnemy(Enemy enemy, Transform parent = null)
         {
             if(!_pools.ContainsKey(enemy))
             {
-                InjectPool<Enemy> newPool = new InjectPool<Enemy>(enemy, _diContainer);
+                Pool<Enemy> newPool = new Pool<Enemy>(enemy);
                 _pools.Add(enemy, newPool);
             }
 
-            return _pools[enemy].Get();
+            Enemy returnEnmy = _pools[enemy].Get();
+            _enemys.Add(returnEnmy);
+            return returnEnmy;
         }
 
-        public List<Enemy[]> GetAllEnemy()
+        public IReadOnlyList<Enemy> GetAllEnemy()
         {
-            List<Enemy[]> list = new List<Enemy[]>(3);
-            foreach (InjectPool<Enemy> poll in _pools.Values)
-            {
-                list.Add(poll.GetAll());
-            }
-
-            return list;
+            return _enemys;
         }
     }
 }

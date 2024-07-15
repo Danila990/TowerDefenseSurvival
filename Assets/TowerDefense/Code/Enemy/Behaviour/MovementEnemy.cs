@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-namespace TowerDefense
+namespace MyCode
 {
     [RequireComponent(typeof(Enemy), typeof(NavMeshAgent))]
     public class MovementEnemy : EnemyBehaviour

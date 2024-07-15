@@ -1,0 +1,23 @@
+Id;ElementType;Enabled;Name;Description;Price;EffectDescription;IconPath;MaxStock;UpgradeType;
+1001;Frost;1;Frost Piercing;Add pierce attack for frost arrow;1750;;Icons/FrostPiercingUpgrade;1;FrostPiercing
+1002;Frost;1;Frost Element;Increases the damage of all ice attacks;750;+ Slowing;Icons/FrostUpgrade;20;FrostElement
+1003;Blood;1;Sacrifice;Collects the blood of slain enemies making all bloody projectiles stronger;1500;;Icons/BloodSacrifice;1;Sacrifice
+1004;Blood;1;Blood Element;Upgrades all bloody attack types;900;;Icons/BloodUpgrade;20;BloodElement
+1005;Blood;1;Vampirism;Allows you to heal for enemies killed by blood magic;1850;;Icons/BloodVampirism;1;Vampirism
+1006;Dark;1;Dark Element;Increases damage of dark attacks;1050;+ Target Count;Icons/DarkUpgrade;20;DarkElement
+1007;Dark;1;Multishot upgrade;Increase Target count for multishot;1050;;Icons/MultiShotUpgrade;20;MultishotUpgrade
+1008;Fire;1;Fire Element;Increases damage from all fire attacks and effects;1500;;Icons/FireUpgrade;20;FireElement
+1009;Poison;1;Stacking Poison;All poisons now stack with each other;3250;;Icons/PoisonStackUpgrade;1;StackingPoison
+1010;Poison;1;Poison Element;Increases damage from all poisonous attacks;950;;Icons/PoisonUpgrade;20;PoisonElement
+1011;Silver;1;Accurate hit;Adds a chance to inflict critical damage with silver attacks;1500;;Icons/SilverCritUpgrade;1;Accuratehit
+1012;Silver;1;Rich silver;Killing silver attacks brings more gold;750;;Icons/SilverMidasUpgrade;10;Richsilver
+1013;Silver;1;Silver Spikes;Spikes now become a silver attack type;750;+ Silver Type;Icons/SpikesSilver;1;SilverSpikes
+1014;Silver;1;Silver Element;Increases the damage of all Silver attacks;750;;Icons/SilverUpgrade;10;SilverElement
+1015;Spikes;1;Absorption;Spikes now absorb some of the incoming damage;750;;Icons/SpikesAbsorbUpgrade;10;Absorption
+1016;Earth;1;Strong walls;Thanks to the earth, it strengthens the tower, increasing its defense;750;;Icons/StunDefenceUpgrade;20;StrongWalls
+1017;Earth;1;Earth Element;Increases damage from all Earth attacks;1500;+ Stun Time;Icons/StunUpgrade;20;EarthElemet
+1018;Default;1;Attack Speed;Increases the firing speed of all projectiles;500;;Icons/AttackSpeed;20;AttackSpeed
+1019;Default;1;Reconstruction;Allows you to repair damage;500;;Icons/HealthRegen;20;Reconstruction
+1020;Default;1;Strengthening;Increases the overall health of the tower;500;;Icons/Health;20;Strengthening
+1021;Default;1;Get rich;Increases income from all kills;500;;Icons/GoldIncome;20;Getrich
+1022;Silver;1;Silver Bounce;+1 bounce for silver;750;;Icons/SilverChaakrumUpgrade;10;SilverChaakrum

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Pool<T> where T : MonoBehaviour
 {
-    protected readonly List<T> _pool = new List<T>(10);
+    protected readonly List<T> _pool = new List<T>();
     protected readonly Transform _parent;
 
     public readonly T Prefab;
@@ -12,11 +12,6 @@ public class Pool<T> where T : MonoBehaviour
     {
         Prefab = prefab;
         _parent = new GameObject("Pool: " + prefab.name).transform;
-    }
-
-    public T[] GetAll()
-    {
-        return _pool.ToArray();
     }
 
     public T Get()
@@ -33,7 +28,7 @@ public class Pool<T> where T : MonoBehaviour
         return Create();
     }
 
-    public virtual T Create(bool isActive = true)
+    public T Create(bool isActive = true)
     {
         T newObject = Object.Instantiate(Prefab, _parent);
         newObject.gameObject.SetActive(isActive);

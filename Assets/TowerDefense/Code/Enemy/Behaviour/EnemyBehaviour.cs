@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TowerDefense
+namespace MyCode
 {
     public abstract class EnemyBehaviour : MonoBehaviour
     {

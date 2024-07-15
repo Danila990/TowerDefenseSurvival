@@ -73,11 +73,12 @@ MonoBehaviour:
   _moveBehaviour: {fileID: 8791418384255324522}
   _attackBehaviour: {fileID: 1974197026404208109}
   _config:
-    AttackDamage: 0
-    AttackDelay: 0
-    AttackRange: 0
-    MoveSpeed: 0
-    Health: 0
+    AttackDamage: 15
+    AttackDelay: 1
+    AttackRange: 2
+    MoveSpeed: 2
+    Health: 15
+    Priority: 15
 --- !u!114 &1974197026404208109
 MonoBehaviour:
   m_ObjectHideFlags: 0

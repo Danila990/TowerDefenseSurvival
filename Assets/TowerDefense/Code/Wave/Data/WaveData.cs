@@ -1,15 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
-namespace TowerDefense
+namespace MyCode
 {
-    [CreateAssetMenu(fileName = "WaveData", menuName = "TowerDefense/Wave/WaveData")]
-    public class WaveData : ScriptableObject
+    [Serializable]
+    public class WaveData
     {
-        [SerializeField] private EnemyData _enemyData;
+        [SerializeField] private Enemy _enemyPrefab;
         [SerializeField] private WaveConfig _waveConfig;
 
-        public EnemyData EnemyData => _enemyData;
+        public Enemy EnemyPrefab => _enemyPrefab;
         public WaveConfig WaveConfig => _waveConfig;
     }
 }

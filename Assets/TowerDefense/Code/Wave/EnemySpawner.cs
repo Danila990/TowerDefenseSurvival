@@ -1,72 +1,47 @@
-﻿using System.Collections;
-using UnityEngine;
-
-namespace TowerDefense
+﻿
+namespace MyCode
 {
     public class EnemySpawner
     {
-        private readonly WaveController _waveController;
         private readonly IEnemyFactory _enemyFactory;
         private readonly WaveData _waveData;
-        private Coroutine _spawnCoroutine;
-        private bool _isStartFactory = false;
+        private Timer _spawnTimer;
+        private bool _isAwaitTime = true;
 
-        public EnemySpawner(WaveData waveData, WaveController wavesController, IEnemyFactory enemyFactory)
+        public EnemySpawner(WaveData waveData , IEnemyFactory enemyFactory)
         {
             _waveData = waveData;
-            _waveController = wavesController;
             _enemyFactory = enemyFactory;
-            Coroutines.StartRountine(StartFactoryCoroutine());
+            _spawnTimer = new Timer(waveData.WaveConfig.StartAwaitTime, true);
+            _isAwaitTime = true;
         }
 
-        public void PlayFactory()
+        public bool CheckSpawn()
         {
-            if (!_isStartFactory)
+            if (_isAwaitTime)
             {
-                throw new System.Exception("Factory not started");
+                if (_spawnTimer.IsTimerEnd)
+                {
+                    _isAwaitTime = false;
+                    _spawnTimer = new Timer(_waveData.WaveConfig.SpawnDelay);
+                }
+            }
+            else
+            {
+                if (_spawnTimer.IsTimerEnd)
+                {
+                    return true;
+                }
             }
 
-            StopSpawnCoroutine();
-            _spawnCoroutine = Coroutines.StartRountine(EnemySpawnCoroutine());
+            return false;
         }
 
-        public void StopFactory()
+        public Enemy SpawnEnemy()
         {
-            if (!_isStartFactory)
-            {
-                throw new System.Exception("Factory not started");
-            }
-
-            StopSpawnCoroutine();
-        }
-
-        private void StopSpawnCoroutine()
-        {
-            Coroutines.StopRountine(_spawnCoroutine);
-            _spawnCoroutine = null;
-        }
-
-        private IEnumerator StartFactoryCoroutine()
-        {
-            yield return new WaitForSeconds(_waveData.WaveConfig.StartAwaitTime);
-            _isStartFactory = true;
-            PlayFactory();
-        }
-
-        private IEnumerator EnemySpawnCoroutine()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(_waveData.WaveConfig.SpawnDelay);
-                SpawnEnemy();
-            }
-        }
-
-        private void SpawnEnemy()
-        {
-            Enemy enemy = _enemyFactory.CreateEnemy(_waveData.EnemyData.Prefab);
-            enemy.SetConfig(_waveData.EnemyData.Config);
-            _waveController.SetEnemy(enemy);
+            _spawnTimer.Start();
+            Enemy enemy = _enemyFactory.CreateEnemy(_waveData.EnemyPrefab);
+            return enemy;
         }
     }
 }
