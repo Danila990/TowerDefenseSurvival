@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e04ae48674eb1604a8b7cc2de2fbd607, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ec4abf796501bb4b94236c6a6023eb2, type: 3}
   m_Name: WaveContainer
   m_EditorClassIdentifier: 
   _waveDatas:
@@ -17,9 +17,9 @@ MonoBehaviour:
       type: 3}
     _waveConfig:
       StartAwaitTime: 1
-      SpawnDelay: 3
+      SpawnDelay: 1
   - _enemyPrefab: {fileID: 8293512715682075044, guid: 54e9ef57c35b1f64b97ac6e2b701bf23,
       type: 3}
     _waveConfig:
-      StartAwaitTime: 5
+      StartAwaitTime: 3
       SpawnDelay: 5
