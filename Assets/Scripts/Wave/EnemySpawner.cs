@@ -40,8 +40,8 @@ namespace MyCode
         public Enemy SpawnEnemy()
         {
             _spawnTimer.Start();
-            Enemy enemy = _enemyFactory.CreateEnemy(_waveData.EnemyPrefab);
-            return enemy;
+            //Enemy enemy = _enemyFactory.CreateEnemy(_waveData.EnemyPrefab);
+            return null;
         }
     }
 }

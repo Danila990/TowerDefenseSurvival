@@ -12,10 +12,10 @@ namespace MyCode
         [SerializeField] private WaveContainer _waveContainer;
 
         private EnemySpawner[] _spawnFactorys;
-        private PlayerBody _playerBody;
+        private Tower _playerBody;
         private bool _isSpawned = false;
 
-        public void Init(IEnemyFactory enemyFactory, PlayerBody playerBody)
+        public void Init(IEnemyFactory enemyFactory, Tower playerBody)
         {
             _playerBody = playerBody;
             CreateSpawnFactorys(enemyFactory);

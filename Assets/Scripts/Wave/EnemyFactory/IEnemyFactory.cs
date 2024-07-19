@@ -5,7 +5,7 @@ namespace MyCode
 {
     public interface IEnemyFactory
     {
-        public Enemy CreateEnemy(Enemy enemy, Transform parent = null);
+        public Enemy CreateEnemy(Enemy enemy, Vector3 position);
         public IReadOnlyList<Enemy> GetAllEnemy();
     }
 }

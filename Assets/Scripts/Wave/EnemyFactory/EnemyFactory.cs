@@ -8,7 +8,7 @@ namespace MyCode
         private readonly Dictionary<Enemy, Pool<Enemy>> _pools = new Dictionary<Enemy, Pool<Enemy>>();
         private readonly List<Enemy> _enemys = new List<Enemy>(25);
 
-        public Enemy CreateEnemy(Enemy enemy, Transform parent = null)
+        public Enemy CreateEnemy(Enemy enemy, Vector3 position)
         {
             if(!_pools.ContainsKey(enemy))
             {
@@ -17,6 +17,7 @@ namespace MyCode
             }
 
             Enemy returnEnmy = _pools[enemy].Get();
+            returnEnmy.transform.position = position;
             _enemys.Add(returnEnmy);
             return returnEnmy;
         }

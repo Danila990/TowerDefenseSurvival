@@ -13,7 +13,7 @@ namespace MyCode
         private IReadOnlyList<Enemy> _enemies = new List<Enemy>();
         private Timer _timer;
 
-        public EnemyLocator(IEnemyFactory enemyFactory, PlayerBody playerBody)
+        public EnemyLocator(IEnemyFactory enemyFactory, Tower playerBody)
         {
             _enemyFactory = enemyFactory;
             _playerBody = playerBody.transform;

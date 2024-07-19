@@ -1,29 +1,31 @@
 using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 
 namespace MyCode
 {
-    public class Bootstrap : MonoBehaviour
+    public class Bootstrap : LifetimeScope
     {
-        [SerializeField] private PlayerBody _playerBody;
-        [SerializeField] private Player _player;
-        [SerializeField] private PlayerAbility _playerAbility;
+        [Header("Bootstrap")]
+        [SerializeField] private Tower _tower;
+        //[SerializeField] private PlayerAbility _playerAbility;
         [SerializeField] private WaveController _waveController;
 
         private EnemyFactory _enemyFactory;
         private EnemyLocator _enemyLocator;
         private ServiceLocator _serviceLocator;
 
-        private void Awake()
+        protected override void Configure(IContainerBuilder builder)
         {
-            SetupSetting();
-            Create();
-            RegisterServices();
+            builder.RegisterComponent(_tower);
+            builder.RegisterComponent(_tower._stats);
+            builder.RegisterComponent<IEnemyFactory>(_enemyFactory);
         }
 
         private void Start()
         {
-            _playerBody.Init(_player);
-            _waveController.Init(_enemyFactory, _playerBody);
+            SetupSetting();
+            Create();
         }
 
         private void Update()
@@ -38,16 +40,8 @@ namespace MyCode
 
         private void Create()
         {
-            _enemyLocator = new EnemyLocator(_enemyFactory, _playerBody);
+            //_enemyLocator = new EnemyLocator(_enemyFactory, _playerBody);
             _enemyFactory = new EnemyFactory();
-        }
-
-        private void RegisterServices()
-        {
-            _serviceLocator = new ServiceLocator();
-            _serviceLocator.Register(_player);
-            _serviceLocator.Register(_playerBody);
-            _serviceLocator.Register(_enemyFactory);
         }
     }
 }

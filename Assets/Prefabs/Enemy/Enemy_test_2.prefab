@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 5288372264896795009}
   - component: {fileID: 3064782785475639411}
   - component: {fileID: 8293512715682075044}
-  - component: {fileID: 6221573586830807279}
-  - component: {fileID: 8315509484657903464}
   m_Layer: 0
   m_Name: Enemy_test_2
   m_TagString: Untagged
@@ -70,39 +68,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 101eb41e94341ab4098e133d32de9b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveBehaviour: {fileID: 8315509484657903464}
-  _attackBehaviour: {fileID: 6221573586830807279}
   _config:
-    AttackDamage: 15
+    Damage: 0
     AttackDelay: 1
     AttackRange: 2
     MoveSpeed: 2
     Health: 15
-    Priority: 15
---- !u!114 &6221573586830807279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6846747430168647561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11feaa37f96a00b4696a6658b6f12908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8315509484657903464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6846747430168647561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d02ede4e18e06a4fa131b036c5a39cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  <_health>k__BackingField:
+    _health: 50
+    _maxHealth: 50
+    _damage: 15
+    _armor: 0
+    _attackDelay: 1
+    _attackRange: 2
+    _moveSpeed: 1
 --- !u!1 &8220840065028615038
 GameObject:
   m_ObjectHideFlags: 0
