@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.AI;
+using VContainer;
 
 namespace MyCode
 {
@@ -9,6 +10,7 @@ namespace MyCode
         private IEnemyBehaviour _currentBehaviour;
         private IEnemyBehaviour _attackBehaviour;
         private IEnemyBehaviour _moveBehaviour;
+        private Tower _tower;
 
         [field: SerializeField] public EnemyStats _stats { get; private set; }
 
@@ -22,14 +24,20 @@ namespace MyCode
             }
         }
 
-        public void Init(Tower tower)
+        [Inject]
+        public void Construct(Tower tower)
         {
-            _moveBehaviour = new NavMeshMoveBehaviour(tower.transform.position, transform, GetComponent<NavMeshAgent>());
-            _attackBehaviour = new MelleAttackBehaviour(tower);
-            SetMoveBehaviour();
+            _tower = tower;
         }
 
-        public void Activate()
+        private void Awake()
+        {
+            _moveBehaviour = new NavMeshMoveBehaviour(_tower.transform.position, transform, GetComponent<NavMeshAgent>());
+            _attackBehaviour = new MelleAttackBehaviour(_tower);
+            
+        }
+
+        private void OnEnable()
         {
             SetMoveBehaviour();
         }
@@ -51,7 +59,10 @@ namespace MyCode
 
         private void SetupNewBehavior(IEnemyBehaviour newBehaviour, Action action = null)
         {
-            _currentBehaviour?.Exit();
+            if (newBehaviour == null)
+                return;
+
+            _currentBehaviour.Exit();
             _currentBehaviour = newBehaviour;
             _currentBehaviour.Enter(_stats);
             if(action != null)

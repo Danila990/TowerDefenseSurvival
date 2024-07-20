@@ -32,7 +32,6 @@ public class NavMeshMoveBehaviour : IEnemyBehaviour
         {
             if (!_agent.hasPath || _agent.velocity.sqrMagnitude == 0f)
             {
-                Exit();
                 OnComplete?.Invoke();
             }
         }

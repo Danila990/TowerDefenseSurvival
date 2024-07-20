@@ -7,15 +7,13 @@ namespace MyCode
 {
     public class EnemyLocator
     {
-        private readonly IEnemyFactory _enemyFactory;
         private readonly Transform _playerBody;
 
         private IReadOnlyList<Enemy> _enemies = new List<Enemy>();
         private Timer _timer;
 
-        public EnemyLocator(IEnemyFactory enemyFactory, Tower playerBody)
+        public EnemyLocator(Tower playerBody)
         {
-            _enemyFactory = enemyFactory;
             _playerBody = playerBody.transform;
             _timer = new Timer(0.3f);
         }

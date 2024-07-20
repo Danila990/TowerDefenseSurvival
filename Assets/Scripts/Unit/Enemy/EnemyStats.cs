@@ -29,7 +29,7 @@ public class EnemyStats : StatsBase
         _increaseMoveSpeed = 0;
     }
 
-    public void AddIncreaseDamage(int damage) => _increaseDamage += damage;
-    public void AddIncreaseArmor(int armor) => _increaseArmor += armor;
-    public void AddIncreaseMoveSpeed(int speed) => _increaseMoveSpeed += speed;
+    public void AddIncreaseDamage(int damage) => _increaseDamage = damage;
+    public void AddIncreaseArmor(int armor) => _increaseArmor = armor;
+    public void AddIncreaseMoveSpeed(float speed) => _increaseMoveSpeed = speed;
 }

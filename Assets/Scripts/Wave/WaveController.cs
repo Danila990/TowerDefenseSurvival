@@ -1,71 +1,62 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
-using System;
 using Random = UnityEngine.Random;
+using VContainer;
 
 namespace MyCode
 {
-    [Serializable]
-    public class WaveController
+    public class WaveController : MonoBehaviour
     {
-        [SerializeField] private readonly Vector2 _rangeSpawn = new Vector2(15, 25);
+        [SerializeField,Range(15, 35)] private readonly Vector2 _rangeSpawn = new Vector2(15, 25);
         [SerializeField] private WaveContainer _waveContainer;
 
-        private EnemySpawner[] _spawnFactorys;
-        private Tower _playerBody;
-        private bool _isSpawned = false;
+        private WaveFactory[] _waveFactoryArray;
+        private Vector3 _spawnPoint;
+        private IObjectResolver _objectResolver;
 
-        public void Init(IEnemyFactory enemyFactory, Tower playerBody)
+        [Inject]
+        public void Construct(IObjectResolver objectResolver, Tower tower)
         {
-            _playerBody = playerBody;
-            CreateSpawnFactorys(enemyFactory);
-            _isSpawned = true;
+            _objectResolver = objectResolver;
+            _spawnPoint = tower.transform.position;
         }
 
-        public void Update()
+        private void Start()
         {
-            if (!_isSpawned)
-            {
-                return;
-            }
-
-            foreach (EnemySpawner enemySpawner in _spawnFactorys)
-            {
-                if (enemySpawner.CheckSpawn())
-                {
-                    SpawnEnemy(enemySpawner.SpawnEnemy());
-                }
-            }
+            CreateFactorys();
         }
 
-        public void ChangeSpawnState(bool isSpawned)
+        private void CreateFactorys()
         {
-            _isSpawned = isSpawned;
+            WaveData[] waveDatas = _waveContainer.GetWaveDatas();
+            _waveFactoryArray = new WaveFactory[waveDatas.Length];
+            for (int i = 0; i < waveDatas.Length; i++)
+            {
+                InjectPool<Enemy> injectPool = new InjectPool<Enemy>(waveDatas[i].EnemyPrefab, _objectResolver);
+                _waveFactoryArray[i] = new WaveFactory(injectPool, waveDatas[i].WaveConfig);
+                _waveFactoryArray[i].OnCreateEnemy += SpawnEnemy;
+            }
         }
 
         private void SpawnEnemy(Enemy enemy)
         {
             enemy.transform.position = GetRandomPointAroundTower();
-            enemy.Init(_playerBody);
-            enemy.Activate();
         }
 
         private Vector3 GetRandomPointAroundTower()
         {
             float angle = Random.Range(0f, Mathf.PI * 2);
             float distance = Random.Range(_rangeSpawn.x, _rangeSpawn.y);
-            float x = _playerBody.transform.position.x + distance * Mathf.Cos(angle);
-            float z = _playerBody.transform.position.z + distance * Mathf.Sin(angle);
-            return new Vector3(x, _playerBody.transform.position.y, z);
+            float x = _spawnPoint.x + distance * Mathf.Cos(angle);
+            float z = _spawnPoint.z + distance * Mathf.Sin(angle);
+            return new Vector3(x, _spawnPoint.y, z);
         }
 
-        private void CreateSpawnFactorys(IEnemyFactory enemyFactory)
+        private void OnDisable()
         {
-            WaveData[] waveDatas = _waveContainer.GetWaveDatas();
-            _spawnFactorys = new EnemySpawner[waveDatas.Length];
-            for (int i = 0; i < waveDatas.Length; i++)
+            foreach (var waveFactory in _waveFactoryArray)
             {
-                _spawnFactorys[i] = new EnemySpawner(waveDatas[i], enemyFactory);
+                waveFactory.OnCreateEnemy -= SpawnEnemy;
+                waveFactory.Dispose();
             }
         }
     }

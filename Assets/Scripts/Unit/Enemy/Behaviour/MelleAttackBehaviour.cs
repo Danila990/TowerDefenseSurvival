@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class MelleAttackBehaviour : IEnemyBehaviour
 {
@@ -6,7 +7,7 @@ public class MelleAttackBehaviour : IEnemyBehaviour
 
     private Timer _timer;
     private IDamageable _damageable;
-    private EnemyStats _enemyStats;
+    private int _damage;
 
     public MelleAttackBehaviour(IDamageable damageable)
     {
@@ -15,6 +16,7 @@ public class MelleAttackBehaviour : IEnemyBehaviour
 
     public void Enter(EnemyStats enemyStats)
     {
+        _damage = enemyStats.Damage;
         _timer = new Timer(enemyStats.AttackDelay);
     }
 
@@ -25,7 +27,7 @@ public class MelleAttackBehaviour : IEnemyBehaviour
             if (_timer.IsTimerEnd)
             {
                 _timer.Start();
-                _damageable.TakeDamage(_enemyStats.Damage);
+                _damageable.TakeDamage(_damage);
             }
         }
         else

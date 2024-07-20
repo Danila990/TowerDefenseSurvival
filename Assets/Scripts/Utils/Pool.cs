@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class Pool<T> where T : MonoBehaviour
 {
-    protected readonly List<T> _pool = new List<T>();
+    protected readonly List<T> _poolList = new List<T>();
     protected readonly Transform _parent;
 
     public readonly T Prefab;
+    public IReadOnlyList<T> PoolList => _poolList;
 
     public Pool(T prefab)
     {
@@ -14,13 +15,13 @@ public class Pool<T> where T : MonoBehaviour
         _parent = new GameObject("Pool: " + prefab.name).transform;
     }
 
-    public T Get()
+    public T Get(bool isActive = true)
     {
-        foreach (T poolObject in _pool)
+        foreach (T poolObject in _poolList)
         {
             if (poolObject.gameObject.activeInHierarchy == false)
             {
-                poolObject.gameObject.SetActive(true);
+                poolObject.gameObject.SetActive(isActive);
                 return poolObject;
             }
         }
@@ -28,11 +29,11 @@ public class Pool<T> where T : MonoBehaviour
         return Create();
     }
 
-    public T Create(bool isActive = true)
+    public virtual T Create(bool isActive = true)
     {
         T newObject = Object.Instantiate(Prefab, _parent);
         newObject.gameObject.SetActive(isActive);
-        _pool.Add(newObject);
+        _poolList.Add(newObject);
         return newObject;
     }
 }
