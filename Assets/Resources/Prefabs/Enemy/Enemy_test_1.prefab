@@ -69,13 +69,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <_stats>k__BackingField:
-    _health: 50
-    _maxHealth: 50
-    _damage: 15
-    _armor: 0
-    _attackDelay: 1
+    _health: 10
+    _maxHealth: 10
+    _damage: 10
+    _armor: 1
+    _attackDelay: 0.1
     _attackRange: 2
-    _moveSpeed: 1
+    _moveSpeed: 0.6
 --- !u!1 &4376893948624973892
 GameObject:
   m_ObjectHideFlags: 0

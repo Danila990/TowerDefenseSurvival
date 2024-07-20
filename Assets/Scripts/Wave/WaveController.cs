@@ -32,7 +32,7 @@ namespace MyCode
             for (int i = 0; i < waveDatas.Length; i++)
             {
                 InjectPool<Enemy> injectPool = new InjectPool<Enemy>(waveDatas[i].EnemyPrefab, _objectResolver);
-                _waveFactoryArray[i] = new WaveFactory(injectPool, waveDatas[i].WaveConfig);
+                _waveFactoryArray[i] = new WaveFactory(injectPool, waveDatas[i].WaveConfig, waveDatas[i].UpgradeWaveItems);
                 _waveFactoryArray[i].OnCreateEnemy += SpawnEnemy;
             }
         }

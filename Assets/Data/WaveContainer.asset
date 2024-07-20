@@ -13,13 +13,5 @@ MonoBehaviour:
   m_Name: WaveContainer
   m_EditorClassIdentifier: 
   _waveDatas:
-  - _enemyPrefab: {fileID: 1578113941607248051, guid: 17e73ad1fbbb41848b7556fe22b30362,
-      type: 3}
-    _waveConfig:
-      StartAwaitTime: 1
-      SpawnDelay: 1
-  - _enemyPrefab: {fileID: 8293512715682075044, guid: 54e9ef57c35b1f64b97ac6e2b701bf23,
-      type: 3}
-    _waveConfig:
-      StartAwaitTime: 3
-      SpawnDelay: 5
+  - {fileID: 11400000, guid: 02ed93f5736de864cadf0367192a1818, type: 2}
+  - {fileID: 11400000, guid: 8cc8605e40e77c04a98880290e68c356, type: 2}

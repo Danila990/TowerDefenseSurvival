@@ -4,13 +4,11 @@ using UnityEngine;
 
 namespace MyCode
 {
-    [Serializable]
-    public class WaveData
+    [CreateAssetMenu(fileName = "WaveData", menuName = "MyCode/Wave/WaveData")]
+    public class WaveData : ScriptableObject
     {
-        [SerializeField] private Enemy _enemyPrefab;
-        [SerializeField] private WaveConfig _waveConfig;
-
-        public Enemy EnemyPrefab => _enemyPrefab;
-        public WaveConfig WaveConfig => _waveConfig;
+        [field: SerializeField] public Enemy EnemyPrefab {  get; private set; }
+        [field: SerializeField] public WaveConfig WaveConfig { get; private set; }
+        [field: SerializeField] public UpgradeWave[] UpgradeWaveItems { get; private set; }
     }
 }

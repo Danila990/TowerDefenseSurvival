@@ -12,11 +12,10 @@ public class EnemyStats : StatsBase
 
     private int _increaseDamage = 0;
     private int _increaseArmor = 0;
-    private float _increaseMoveSpeed = 0;
 
     public int Damage => _damage + _increaseDamage;
     public int Armor => _armor + _increaseArmor;
-    public float MoveSpeed => _moveSpeed + _increaseMoveSpeed;
+    public float MoveSpeed => _moveSpeed;
     public float AttackRange => _attackRange;
     public float AttackDelay => _attackDelay;
 
@@ -26,10 +25,8 @@ public class EnemyStats : StatsBase
 
         _increaseDamage = 0;
         _increaseArmor = 0;
-        _increaseMoveSpeed = 0;
     }
 
     public void AddIncreaseDamage(int damage) => _increaseDamage = damage;
     public void AddIncreaseArmor(int armor) => _increaseArmor = armor;
-    public void AddIncreaseMoveSpeed(float speed) => _increaseMoveSpeed = speed;
 }

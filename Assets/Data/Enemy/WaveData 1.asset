@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281f312e227133e4d9af5590803fabe9, type: 3}
+  m_Name: WaveData 1
+  m_EditorClassIdentifier: 
+  <EnemyPrefab>k__BackingField: {fileID: 8293512715682075044, guid: 54e9ef57c35b1f64b97ac6e2b701bf23,
+    type: 3}
+  <WaveConfig>k__BackingField:
+    StartAwaitTime: 5
+    SpawnDelay: 5
+  <UpgradeWaveItems>k__BackingField:
+  - <UpgradeItem>k__BackingField:
+    - <UpgradeType>k__BackingField: 0
+      <Count>k__BackingField: 10
+    - <UpgradeType>k__BackingField: 1
+      <Count>k__BackingField: 10
+    <UpdateDelay>k__BackingField: 25
+  - <UpgradeItem>k__BackingField:
+    - <UpgradeType>k__BackingField: 3
+      <Count>k__BackingField: 1
+    <UpdateDelay>k__BackingField: 50

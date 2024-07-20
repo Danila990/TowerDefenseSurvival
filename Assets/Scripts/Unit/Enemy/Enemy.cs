@@ -34,7 +34,6 @@ namespace MyCode
         {
             _moveBehaviour = new NavMeshMoveBehaviour(_tower.transform.position, transform, GetComponent<NavMeshAgent>());
             _attackBehaviour = new MelleAttackBehaviour(_tower);
-            
         }
 
         private void OnEnable()
@@ -62,7 +61,7 @@ namespace MyCode
             if (newBehaviour == null)
                 return;
 
-            _currentBehaviour.Exit();
+            _currentBehaviour?.Exit();
             _currentBehaviour = newBehaviour;
             _currentBehaviour.Enter(_stats);
             if(action != null)
