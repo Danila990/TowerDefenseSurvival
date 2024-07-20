@@ -6,7 +6,7 @@ namespace MyCode
 {
     public class WaveController : MonoBehaviour
     {
-        [SerializeField,Range(15, 35)] private readonly Vector2 _rangeSpawn = new Vector2(15, 25);
+        [SerializeField] private Vector2 _rangeSpawn = new Vector2(15, 25);
         [SerializeField] private WaveContainer _waveContainer;
 
         private WaveFactory[] _waveFactoryArray;
