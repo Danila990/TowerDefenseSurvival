@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281f312e227133e4d9af5590803fabe9, type: 3}
+  m_Name: ScorpionKingWave
+  m_EditorClassIdentifier: 
+  <EnemyPrefab>k__BackingField: {fileID: 4708765420901834491, guid: f1d4fbea514a0ec4098bae2ff57f8d53,
+    type: 3}
+  <WaveConfig>k__BackingField:
+    StartAwaitTime: 60
+    SpawnDelay: 40
+  <UpgradeWaveItems>k__BackingField:
+  - <UpgradeItem>k__BackingField:
+    - <UpgradeType>k__BackingField: 0
+      <Count>k__BackingField: 15
+    - <UpgradeType>k__BackingField: 1
+      <Count>k__BackingField: 15
+    <UpdateDelay>k__BackingField: 40
+  - <UpgradeItem>k__BackingField:
+    - <UpgradeType>k__BackingField: 3
+      <Count>k__BackingField: 1
+    <UpdateDelay>k__BackingField: 120

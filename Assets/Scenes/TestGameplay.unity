@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d50b081b6248294ba48e4441de10116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rangeSpawn: {x: 15, y: 25}
+  _rangeSpawn: {x: 18, y: 30}
   _waveContainer: {fileID: 11400000, guid: 094a4190f8c11b7498750dc93479fcf5, type: 2}
 --- !u!1 &330585543
 GameObject:
