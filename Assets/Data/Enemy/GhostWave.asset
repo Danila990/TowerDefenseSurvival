@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281f312e227133e4d9af5590803fabe9, type: 3}
   m_Name: GhostWave
   m_EditorClassIdentifier: 
-  <EnemyPrefab>k__BackingField: {fileID: 7375727970774903162, guid: 652947c6ed0a9824c8a406a8cfff8e12,
+  <EnemyPrefab>k__BackingField: {fileID: 7375727970774903162, guid: d371ee07aaf0e664bad0be82ea16052f,
     type: 3}
   <WaveConfig>k__BackingField:
     StartAwaitTime: 1
