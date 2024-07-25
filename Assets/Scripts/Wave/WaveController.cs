@@ -1,30 +1,26 @@
 ﻿using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
-using VContainer;
 
 namespace MyCode
 {
-    public class WaveController : MonoBehaviour
+    public class WaveController : IInitializable
     {
-        [SerializeField] private Vector2 _rangeSpawn = new Vector2(15, 25);
-        [SerializeField] private AssetReferenceScriptableObject _referenceWaveContainer;
-
-        private WaveContainer _waveContainer;
+        private readonly Vector2 _rangeSpawn = new Vector2(15, 25);
+        private readonly Vector3 _spawnPoint;
+        private readonly WaveContainer _waveContainer;
+        private readonly DiContainer _diContainer;
         private WaveFactory[] _waveFactoryArray;
-        private Vector3 _spawnPoint;
-        private IObjectResolver _objectResolver;
 
-        [Inject]
-        public void Construct(IObjectResolver objectResolver, Tower tower)
+        public WaveController(DiContainer diContainer, Tower tower, WaveContainer waveContainer)
         {
-            _objectResolver = objectResolver;
+            _diContainer = diContainer;
+            _waveContainer = waveContainer;
             _spawnPoint = tower.transform.position;
-            Init();
         }
 
-        private async void Init()
+        public void Initialize()
         {
-            _waveContainer = await AssetLoader.Load<WaveContainer>(_referenceWaveContainer);
             CreateFactorys();
         }
 
@@ -34,7 +30,7 @@ namespace MyCode
             _waveFactoryArray = new WaveFactory[waveDatas.Length];
             for (int i = 0; i < waveDatas.Length; i++)
             {
-                InjectPool<Enemy> injectPool = new InjectPool<Enemy>(waveDatas[i].EnemyPrefab, _objectResolver);
+                InjectPool<Enemy> injectPool = new InjectPool<Enemy>(waveDatas[i].EnemyPrefab, _diContainer);
                 _waveFactoryArray[i] = new WaveFactory(injectPool, waveDatas[i].WaveConfig, waveDatas[i].UpgradeWaveItems);
                 _waveFactoryArray[i].OnCreateEnemy += SpawnEnemy;
             }
