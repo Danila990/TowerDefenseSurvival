@@ -7,8 +7,9 @@ namespace MyCode
     public class WaveController : MonoBehaviour
     {
         [SerializeField] private Vector2 _rangeSpawn = new Vector2(15, 25);
-        [SerializeField] private WaveContainer _waveContainer;
+        [SerializeField] private AssetReferenceScriptableObject _referenceWaveContainer;
 
+        private WaveContainer _waveContainer;
         private WaveFactory[] _waveFactoryArray;
         private Vector3 _spawnPoint;
         private IObjectResolver _objectResolver;
@@ -18,10 +19,12 @@ namespace MyCode
         {
             _objectResolver = objectResolver;
             _spawnPoint = tower.transform.position;
+            Init();
         }
 
-        private void Start()
+        private async void Init()
         {
+            _waveContainer = await AssetLoader.Load<WaveContainer>(_referenceWaveContainer);
             CreateFactorys();
         }
 

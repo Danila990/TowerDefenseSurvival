@@ -169,10 +169,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentReference:
     TypeName: 
-  autoRun: 1
+  autoRun: 0
   autoInjectGameObjects: []
-  _tower: {fileID: 1355943714867967124}
-  _waveController: {fileID: 305191780}
+  _referenceTower:
+    m_AssetGUID: d9e564ca64780fa4ea6a481544d03f7f
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!114 &305191780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +189,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rangeSpawn: {x: 18, y: 30}
-  _waveContainer: {fileID: 11400000, guid: 094a4190f8c11b7498750dc93479fcf5, type: 2}
+  _referenceWaveContainer:
+    m_AssetGUID: 094a4190f8c11b7498750dc93479fcf5
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,18 +809,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9e564ca64780fa4ea6a481544d03f7f, type: 3}
---- !u!114 &1355943714867967124 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3703959349076546034, guid: d9e564ca64780fa4ea6a481544d03f7f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1355943714867967123}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22cf95ba92ef98e418078521fcbbaa33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
