@@ -9980,6 +9980,7 @@ MonoBehaviour:
     _attackDelay: 1
     _attackRange: 3
     _moveSpeed: 0.6
+    _income: 50
 --- !u!195 &8532240686713429012
 NavMeshAgent:
   m_ObjectHideFlags: 0

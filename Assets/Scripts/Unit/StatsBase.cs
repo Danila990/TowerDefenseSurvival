@@ -16,8 +16,7 @@ public class StatsBase
 
     public virtual void ResetStats()
     {
-        _increaseMaxHealth = 0;
-        _health = _maxHealth;
+        _health = MaxHealth;
     }
 
     public virtual void ReduceHealth(int value)

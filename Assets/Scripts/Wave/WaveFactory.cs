@@ -81,6 +81,7 @@ namespace MyCode
         private void CreateEnemy()
         {
             Enemy enemy = _pool.Get();
+            enemy._stats.ResetStats();
             enemy._stats.AddIncreaseArmor(_increaseArmor);
             enemy._stats.AddIncreaseDamage(_increaseDamage);
             enemy._stats.AddIncreaseMaxHealth(_increaseMaxHealth);
