@@ -4,23 +4,21 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
 
-public class GameBootstrapInstaller : MonoInstaller, IInitializable
+public class GameBootstrapInstaller : MonoInstaller
 {
     [SerializeField] private Transform _towerPoint;
     [SerializeField] private AssetReferenceGameObject _referenceTower;
     [SerializeField] private AssetReferenceScriptableObject _referenceWaveContainer;
 
-    public override void InstallBindings()
+    public override async void InstallBindings()
     {
-        Container.BindInterfacesTo<GameBootstrapInstaller>().FromInstance(this).AsSingle();
-        BindTower();
-        BindWave();
-        Container.Bind<EnemyLocator>().FromNew().AsSingle();
+        await BindTower();
+        await BindWave();
+        Initialize();
     }
 
-    public async void Initialize()
+    private void Initialize()
     {
-        await Task.Delay(1000);
         SetupSetting();
         var waveController = Container.Resolve<WaveController>();
         waveController.Initialize();
@@ -31,14 +29,14 @@ public class GameBootstrapInstaller : MonoInstaller, IInitializable
         Application.targetFrameRate = 60;
     }
 
-    private async void BindWave()
+    private async Task BindWave()
     {
         WaveContainer waveContainer = await AssetLoader.Load<WaveContainer>(_referenceWaveContainer);
         Container.Bind<WaveContainer>().FromScriptableObject(waveContainer).AsSingle();
         Container.Bind<WaveController>().FromNew().AsSingle().NonLazy();
     }
 
-    private async void BindTower()
+    private async Task BindTower()
     {
         Tower tower = await AssetLoader.Load<Tower>(_referenceTower);
         tower.transform.position = _towerPoint.transform.position;
